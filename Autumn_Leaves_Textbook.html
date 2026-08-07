@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Autumn Leaves 완전 해부</title>
+<style>
+:root{
+  --bg:#171310; --sur:#211b15; --sur2:#2c241b; --line:#463a2c;
+  --tx:#e9dfcb; --mut:#9a8c78;
+  --brass:#cfa050; --tort:#c46a50; --sage:#6da28f; --plum:#8a7fa8;
+  --serif:Georgia,'Times New Roman','Apple SD Gothic Neo',serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--tx);
+  font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Segoe UI',sans-serif;
+  font-size:16px;line-height:1.78;-webkit-text-size-adjust:100%}
+#top{position:sticky;top:0;z-index:8;background:rgba(23,19,16,.96);
+  border-bottom:1px solid var(--line);padding:9px 14px;text-align:center;
+  padding-top:calc(9px + env(safe-area-inset-top))}
+#top .bk{font-family:var(--serif);font-size:13.5px;color:var(--brass);letter-spacing:.04em}
+#top .ch{font-size:11.5px;color:var(--mut)}
+main{max-width:620px;margin:0 auto;padding:14px 16px 106px}
+.page{display:none}
+.page.on{display:block}
+h2{font-family:var(--serif);font-size:22.5px;color:var(--brass);margin:6px 0 4px;line-height:1.36}
+h2 .num{display:block;font-size:11.5px;color:var(--mut);letter-spacing:.16em;margin-bottom:3px}
+h3{font-family:var(--serif);font-size:18px;margin:24px 0 6px}
+p{margin:10px 0}
+ul,ol{margin:10px 0;padding-left:21px}
+li{margin:6px 0}
+b,strong{color:#fff8ea}
+.lead{color:var(--mut);font-size:14.5px;border-left:2px solid var(--line);padding-left:12px;margin:12px 0}
+.big-idea{background:linear-gradient(180deg,rgba(207,160,80,.13),rgba(207,160,80,.04));
+  border:1px solid var(--brass);border-radius:14px;padding:15px;margin:16px 0}
+.big-idea .k{font-size:11.5px;color:var(--brass);letter-spacing:.14em;margin-bottom:5px}
+.big-idea p{margin:5px 0;font-size:16.5px}
+.tw{overflow-x:auto;margin:12px 0;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:320px}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{background:var(--sur2);color:var(--brass);font-weight:600;white-space:nowrap}
+td.f{font-variant-numeric:tabular-nums;white-space:nowrap}
+.w{background:var(--sur);border:1px solid var(--line);border-left:3px solid var(--brass);
+  border-radius:12px;padding:13px;margin:16px 0}
+.w .dt{font-size:11.5px;color:var(--brass);letter-spacing:.1em;margin-bottom:8px}
+.w .dc{text-align:center}
+.w .hint{color:var(--mut);font-size:12.5px;margin-top:9px;line-height:1.62}
+.cn{font-family:var(--serif);font-size:31px;line-height:1.15;margin:3px 0}
+.sub{color:var(--mut);font-size:13px;margin:2px 0}
+.tg{font-family:var(--serif);font-size:20px;color:var(--tort);margin:2px 0}
+.btn{border:1px solid var(--line);background:var(--sur2);color:var(--tx);
+  border-radius:10px;padding:9px 13px;font-size:13.5px;font-family:inherit}
+.btn.brass{background:var(--brass);border-color:var(--brass);color:#211708;font-weight:700}
+.btn.sm{padding:6px 10px;font-size:12.5px}
+.btn.big{padding:12px 22px;font-size:15.5px}
+.btn.on{border-color:var(--brass);color:var(--brass)}
+.btn:disabled{opacity:.35}
+.row{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin:9px 0 2px;align-items:center}
+.row.left{justify-content:flex-start}
+button{cursor:pointer}
+button:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.ply{display:inline-block;border:1px solid var(--line);background:var(--sur2);color:var(--tx);
+  border-radius:7px;padding:1px 7px 2px;font-size:14px;font-family:var(--serif);line-height:1.5;
+  white-space:nowrap;margin:0 1px}
+.ply::before{content:'▸ ';color:var(--brass);font-size:11px}
+.strip{display:flex;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:5px 0 10px}
+.strip button{flex:1;background:transparent;border:none;border-left:1px solid var(--line);padding:6px 1px;color:var(--mut)}
+.strip button:first-child{border-left:none}
+.strip button .d{display:block;font-family:var(--serif);font-size:14px;color:var(--tx)}
+.strip button .n{display:block;font-size:8.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.strip button.cur{background:var(--sur2)}
+.strip button.cur .d{color:var(--brass)}
+.mv{min-height:20px;font-size:13px;margin:4px 0}
+.mv .keep{color:var(--sage)}
+.mv .fall{color:var(--tort)}
+.beats{display:flex;gap:10px;justify-content:center;margin:9px 0 3px}
+.beats i{width:11px;height:11px;border-radius:50%;background:var(--sur2);border:1px solid var(--line);transition:transform .07s}
+.beats i.on{background:var(--brass);border-color:var(--brass);transform:scale(1.28)}
+.map{display:grid;grid-template-columns:repeat(8,1fr);gap:3px;margin:12px 0}
+.map button{background:var(--sur2);border:1px solid var(--line);border-radius:5px;padding:6px 1px;color:var(--tx);
+  font-size:9px;line-height:1.25;font-family:var(--serif);overflow:hidden}
+.map button .bn{display:block;font-size:7.5px;color:var(--mut);font-family:inherit}
+.map button.A1{border-color:rgba(207,160,80,.6)}
+.map button.A2{border-color:rgba(207,160,80,.6)}
+.map button.B{border-color:rgba(109,162,143,.6)}
+.map button.C{border-color:rgba(138,127,168,.7)}
+.map button.cur{background:var(--brass);color:#211708;font-weight:700}
+.map button.cur .bn{color:#4a3a18}
+.mapkey{font-size:11.5px;color:var(--mut);margin-top:4px}
+.mapkey i{display:inline-block;width:9px;height:9px;border-radius:2px;vertical-align:0;margin:0 3px 0 9px}
+.chk{background:var(--sur);border:1px dashed var(--line);border-radius:12px;padding:12px 14px;margin:20px 0}
+.chk .ct{font-size:11.5px;color:var(--sage);letter-spacing:.1em;margin-bottom:4px}
+.chk ol{padding-left:19px}
+.chk li{font-size:14.5px}
+.chk .ans{display:none;color:var(--sage);font-size:13.5px}
+.chk.open .ans{display:block}
+.legend{font-size:11.5px;color:var(--mut);margin-top:6px}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:50%;vertical-align:0;margin:0 3px 0 8px}
+.legend i.ring{background:transparent;border:2px solid var(--tort);width:8px;height:8px}
+#bar{position:fixed;left:0;right:0;bottom:0;z-index:9;display:flex;
+  background:rgba(23,19,16,.97);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
+#bar button{flex:1;background:transparent;border:none;color:var(--mut);padding:12px 0 10px;font-size:13.5px}
+#bar button.mid{color:var(--brass);font-weight:700}
+#bar button:disabled{opacity:.3}
+#toc{position:fixed;inset:0;z-index:20;background:rgba(15,12,10,.975);display:none;overflow-y:auto;
+  padding:calc(20px + env(safe-area-inset-top)) 18px 100px}
+#toc.on{display:block}
+#toc h3{font-family:var(--serif);color:var(--brass);margin:0 0 12px;font-size:20px}
+#toc button{display:block;width:100%;text-align:left;background:var(--sur);border:1px solid var(--line);
+  color:var(--tx);border-radius:10px;padding:11px 14px;margin:6px 0;font-size:14.5px;font-family:inherit}
+#toc button.cur{border-color:var(--brass);color:var(--brass)}
+#toc button small{display:block;color:var(--mut);font-size:11.5px}
+#toc .close{background:transparent;border:none;color:var(--mut);text-align:center;margin-top:14px}
+svg text{user-select:none}
+.fb{display:flex;justify-content:center}
+</style>
+</head>
+<body>
+<div id="top"><div class="bk">Autumn Leaves 완전 해부</div><div class="ch" id="topch"></div></div>
+<main>
+
+<!-- 0 -->
+<section class="page" id="p0">
+  <h2><span class="num">서문</span>왜 이 곡부터인가</h2>
+  <p class="lead">재즈를 시작하는 기타리스트가 가장 먼저 배우는 곡. 이유가 있습니다.</p>
+  <p>Autumn Leaves는 재즈 스탠더드 중 <b>화성 구조가 가장 투명한 곡</b>입니다. 32마디 전체가 단 하나의 원리 — <b>4도 진행</b> — 로 설명되고, 그 원리는 쉘 보이싱 교재에서 이미 연습한 <b>7-3-6-2-5-1-4 사이클</b>과 정확히 같은 것입니다.</p>
+  <p>즉 이 곡은 새로 배우는 것이 아니라, <b>이미 연습한 것을 곡의 형태로 확인하는 자리</b>입니다.</p>
+  <h3>이 학습서가 다루는 것</h3>
+  <ul>
+    <li>곡의 배경과 조성 — 왜 메이저와 마이너를 오가는가</li>
+    <li>32마디 전체의 화성 해부 — 마디마다 무슨 일이 일어나는가</li>
+    <li>쉘 보이싱으로 전곡 컴핑 — 포지션과 보이스 리딩</li>
+    <li>솔로 — 어디에 착지할 것인가(타겟)와 어떻게 접근할 것인가</li>
+    <li>6주 연습 로드맵</li>
+  </ul>
+  <p class="lead">모든 코드·진행·타겟 음은 눌러서 소리로 확인할 수 있습니다. 읽다가 막히면 일단 눌러서 들어보세요.</p>
+  <h3>다루지 않는 것</h3>
+  <p>원곡 멜로디와 가사는 저작권이 있어 이 자료에 싣지 않습니다. 멜로디는 <b>녹음을 반복해 들으며 귀로 익히는 것</b>이 정통 재즈 학습법이기도 합니다. 부록에 듣기 가이드를 넣어두었습니다.</p>
+</section>
+
+<!-- 1 -->
+<section class="page" id="p1">
+  <h2><span class="num">제 1 장</span>곡의 배경</h2>
+  <h3>1.1 프랑스 샹송에서 재즈 스탠더드로</h3>
+  <p>1945년 헝가리 출신 작곡가 <b>조제프 코스마(Joseph Kosma)</b>가 프랑스에서 발표한 <i>Les Feuilles mortes</i>(마른 잎)가 원곡입니다. 시인 자크 프레베르가 가사를 붙였고, 영화 삽입곡으로 쓰였습니다.</p>
+  <p>1947년 미국의 작사가 <b>조니 머서(Johnny Mercer)</b>가 영어 가사를 붙이면서 <i>Autumn Leaves</i>가 되었고, 1955년 로저 윌리엄스의 피아노 연주 버전이 크게 히트하면서 널리 알려졌습니다.</p>
+  <p>재즈 표준곡으로 굳어진 결정적 계기는 1958년 캐넌볼 애덜리의 앨범 <i>Somethin' Else</i>(마일스 데이비스 참여) 수록 버전으로 꼽힙니다. 이후 빌 에반스, 쳇 베이커, 웨스 몽고메리 등 거의 모든 재즈 연주자가 녹음했습니다.</p>
+
+  <h3>1.2 키 — 왜 여러 개인가</h3>
+  <div class="tw"><table>
+    <tr><th>키</th><th>쓰이는 곳</th></tr>
+    <tr><td>A minor</td><td>원곡(프랑스 샹송)의 조성</td></tr>
+    <tr><td><b>E minor</b></td><td>리얼북 표기. 기타에 가장 편함 — <b>이 학습서의 기준</b></td></tr>
+    <tr><td>G minor</td><td>실제 잼 세션·연주 현장에서 가장 흔함 (관악기에 편함)</td></tr>
+  </table></div>
+  <p>E minor로 배운 뒤 G minor로 옮기는 것이 표준 경로입니다. 쉘 보이싱은 폼이 같고 위치만 이동하므로, 사이클이 손에 붙어 있으면 이조는 어렵지 않습니다(제13장 부록).</p>
+
+  <h3>1.3 왜 "초보자의 곡"으로 불리는가</h3>
+  <p>이 곡은 <b>2-5-1 진행만으로 이루어져 있습니다.</b> 그것도 두 종류로 — 메이저 2-5-1과 마이너 2-5-1. 재즈 화성의 기본 어휘 두 개를 반복 연습하게 되는 구조입니다.</p>
+  <p class="lead">다만 유의할 점 — <b>쉽다는 건 화성이 투명하다는 뜻이지, 잘 연주하기 쉽다는 뜻이 아닙니다.</b> 구조가 단순해서 어설픈 프레이즈가 그대로 드러납니다. 그래서 상급자들도 계속 연주합니다.</p>
+
+  <div class="w w-song" data-sec="A1" data-mode="chord" data-bpm="72" data-rhy="char"
+    data-t="일단 한 번 들어보기 — A 섹션 8마디"
+    data-hint="쉘 보이싱 컴핑 + 베이스. 코드 이름과 다이어그램이 함께 바뀝니다. 아직 이해할 필요 없습니다 — 소리에 익숙해지는 것이 먼저입니다."></div>
+</section>
+
+<!-- 2 -->
+<section class="page" id="p2">
+  <h2><span class="num">제 2 장</span>하나의 발견</h2>
+  <div class="big-idea">
+    <div class="k">이 곡의 전부</div>
+    <p><b>Autumn Leaves는 처음부터 끝까지 루트가 4도씩 올라간다.</b></p>
+    <p style="font-size:14px;color:var(--mut)">32마디 · 28번의 코드 전환 중 <b style="color:var(--brass)">23번</b>이 4도 진행. 나머지 5번은 섹션이 바뀌는 이음매입니다.</p>
+  </div>
+  <div class="w" style="border-left-color:var(--sage)">
+    <div class="dt" style="color:var(--sage)">용어 — 4도인가 5도인가</div>
+    <p style="margin:4px 0;font-size:14.5px">A에서 D로 갈 때 <b>위로 올라가면 완전4도</b>, <b>아래로 내려가면 완전5도</b>입니다. 도착하는 음은 같은 D — 옥타브만 다릅니다.</p>
+    <p style="margin:4px 0;font-size:14.5px">즉 <b>4도 상행 = 5도 하행</b>, 같은 말입니다. 원의 이름은 조표 이론에서 나와 "5도권"으로 굳었지만, <b>재즈에서는 진행이 실제로 도는 방향을 따라 "4도 진행"이라 부르는 것이 일반적입니다.</b> 이 학습서도 4도 진행으로 통일합니다.</p>
+  </div>
+  <p>쉘 보이싱 교재에서 연습한 매직 시퀀스를 기억하시나요.</p>
+  <p style="text-align:center;font-family:var(--serif);font-size:20px;color:var(--brass);margin:12px 0">7 → 3 → 6 → 2 → 5 → 1 → 4</p>
+  <p>Autumn Leaves는 <b>이 사이클을 세 번 통과하는 곡</b>입니다. 시작 지점만 다를 뿐입니다.</p>
+
+  <div class="tw"><table>
+    <tr><th>섹션</th><th>루트 사슬</th><th>도수 (G키)</th></tr>
+    <tr><td>A</td><td class="f">A→D→G→C→F♯→B→E</td><td class="f">2-5-1-4-7-3-6</td></tr>
+    <tr><td>B</td><td class="f">F♯→B→E→A→D→G</td><td class="f">7-3-6-2-5-1</td></tr>
+    <tr><td>C</td><td class="f">F♯→B→E→A→D→G→C</td><td class="f">7-3-6-2-5-1-4</td></tr>
+  </table></div>
+  <p>세 섹션 모두 <b>같은 사슬의 일부</b>입니다. 외울 것이 사실상 하나뿐이라는 뜻입니다.</p>
+
+  <div class="w w-chain" data-t="루트만 들어보기 — 4도 진행의 추진력"
+    data-hint="섹션을 바꿔가며 들어보세요. 코드 없이 베이스 음만으로도 '끌려 내려간다'는 느낌이 옵니다. 이 추진력이 곡 전체를 밀고 갑니다."></div>
+
+  <h3>2.1 예외 다섯 곳</h3>
+  <p>정직하게 짚으면, 4도 진행이 아닌 이동이 다섯 번 있습니다.</p>
+  <div class="tw"><table>
+    <tr><th>위치</th><th>이동</th><th>정체</th></tr>
+    <tr><td>4→5마디, 12→13마디</td><td>C → F♯</td><td>사이클의 <b>마디 이음매</b>(4도→7도). 교재에서 말한 증4도(=감5도) 이음매 — 사이클이 한 바퀴를 마치는 지점</td></tr>
+    <tr><td>16→17마디</td><td>E → F♯</td><td>A 섹션 끝 → B 섹션 시작 (온음 상행)</td></tr>
+    <tr><td>24→25마디</td><td>G → F♯</td><td>B 섹션 끝 → C 섹션 시작 (반음 하행)</td></tr>
+    <tr><td>29→30마디</td><td>C → B</td><td>마지막 마이너 종지를 위한 반음 하행</td></tr>
+  </table></div>
+  <p class="lead">즉 <b>섹션 안에서는 예외가 사실상 없고, 섹션이 바뀌는 자리에서만 이음매가 생깁니다.</b> 곡을 외울 때 이 네 지점만 따로 기억하면 나머지는 사슬이 알아서 이어집니다.</p>
+
+  <div class="chk">
+    <div class="ct">셀프 체크</div>
+    <ol>
+      <li>A 섹션의 루트 사슬을 도수로 말하면?<span class="ans">▸ 2-5-1-4-7-3-6</span></li>
+      <li>B 섹션이 A와 다른 점은?<span class="ans">▸ 같은 사슬을 7도(F♯)에서 시작 — 즉 A의 뒷부분이 앞으로 옴</span></li>
+      <li>이 곡을 외우기 쉬운 근본 이유는?<span class="ans">▸ 세 섹션이 전부 같은 4도 진행 사슬의 일부이기 때문</span></li>
+    </ol>
+    <button class="btn sm rev">답 보기</button>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="page" id="p3">
+  <h2><span class="num">제 3 장</span>조성의 이중성</h2>
+  <p class="lead">이 곡이 "슬프면서 밝은" 이유 — 두 개의 집을 오가기 때문입니다.</p>
+
+  <h3>3.1 G 메이저와 E 마이너는 같은 음이다</h3>
+  <p>G 메이저 스케일: G A B C D E F♯ — 일곱 음.<br>E 마이너 스케일: E F♯ G A B C D — <b>똑같은 일곱 음</b>입니다. 시작점만 다릅니다.</p>
+  <p>이런 관계를 <b>관계조(relative key)</b>라 합니다. 음 재료는 같은데 <b>어느 음을 중심으로 느끼느냐</b>가 다릅니다.</p>
+
+  <div class="w w-dual" data-t="같은 음, 다른 중심 — 직접 비교"
+    data-hint="완전히 같은 일곱 음입니다. 그런데 G에서 끝나면 밝고, E에서 끝나면 어둡습니다. 조성은 음의 집합이 아니라 '중력의 중심'입니다."></div>
+
+  <h3>3.2 곡이 두 집을 오간다</h3>
+  <div class="tw"><table>
+    <tr><th>구간</th><th>진행</th><th>도착지</th></tr>
+    <tr><td>1~4마디</td><td>Am7 D7 Gmaj7 Cmaj7</td><td><b style="color:var(--brass)">G 메이저</b> (밝음)</td></tr>
+    <tr><td>5~8마디</td><td>F♯m7♭5 B7 Em7</td><td><b style="color:var(--plum)">E 마이너</b> (어두움)</td></tr>
+  </table></div>
+  <p>앞 절반은 메이저 2-5-1으로 밝게 도착하고, 뒷 절반은 마이너 2-5-1으로 어둡게 내려앉습니다. 그리고 다시 처음으로 돌아갑니다. 계절이 바뀌듯 오가는 것이죠.</p>
+
+  <div class="w w-song" data-sec="A1" data-mode="chord" data-bpm="66" data-rhy="whole"
+    data-t="밝음 → 어두움, 4마디씩 들어보기"
+    data-hint="1~4마디에서 Gmaj7에 도착할 때의 밝은 안도감, 5~8마디에서 Em7에 내려앉을 때의 어두운 안도감. 같은 '해결'인데 색이 완전히 다릅니다."></div>
+
+  <h3>3.3 메이저 2-5-1과 마이너 2-5-1</h3>
+  <div class="tw"><table>
+    <tr><th></th><th>2도</th><th>5도</th><th>1도</th></tr>
+    <tr><td><b>메이저</b> (G키)</td><td>Am7 (m7)</td><td>D7</td><td>Gmaj7</td></tr>
+    <tr><td><b>마이너</b> (Em키)</td><td>F♯m7♭5 (<b>m7♭5</b>)</td><td>B7</td><td>Em7</td></tr>
+  </table></div>
+  <p>차이는 두 곳뿐입니다.</p>
+  <ul>
+    <li><b>2도가 m7♭5</b> — 마이너 2-5-1의 표식입니다. 코드 차트에서 m7♭5를 보면 "여기서 마이너로 간다"는 신호입니다. 쉘 보이싱에서는 5도를 생략하므로 <b>m7과 똑같이 잡습니다.</b></li>
+    <li><b>5도가 도미넌트</b> — 다이아토닉대로면 Bm7이어야 하는데 B7입니다. 3도를 반음 올려(D→D♯) 1도로 강하게 끌어당깁니다.</li>
+  </ul>
+
+  <div class="w w-ab" data-a="11:m7:5" data-b="11:7:5" data-t="Bm7 vs B7 — 한 음 차이"
+    data-hint="다음 코드가 Em7이라고 상상하며 들어보세요. B7 쪽이 훨씬 강하게 '가고 싶어' 합니다. 이 한 음(D→D♯)이 마이너 종지를 만듭니다."></div>
+
+  <div class="chk">
+    <div class="ct">셀프 체크</div>
+    <ol>
+      <li>G 메이저와 E 마이너의 관계는?<span class="ans">▸ 관계조 — 구성음 일곱 개가 완전히 같고 중심음만 다름</span></li>
+      <li>마이너 2-5-1을 알아보는 표식 두 가지는?<span class="ans">▸ 2도가 m7♭5 / 5도가 도미넌트(3도를 반음 올림)</span></li>
+      <li>쉘 보이싱에서 F♯m7♭5를 어떻게 잡나?<span class="ans">▸ F♯m7과 동일하게 (♭5 음 자체를 생략하므로)</span></li>
+    </ol>
+    <button class="btn sm rev">답 보기</button>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="page" id="p4">
+  <h2><span class="num">제 4 장</span>폼 지도 — 32마디</h2>
+  <p class="lead">형식은 <b>AABC</b>. 8마디짜리 네 덩어리입니다. A가 두 번 반복되므로 실제로 외울 것은 세 개.</p>
+  <div class="w w-map" data-t="32마디 전체 — 아무 마디나 눌러 소리 확인"
+    data-hint="색으로 섹션이 구분됩니다. A(2회 반복) · B · C. 같은 코드가 얼마나 자주 되돌아오는지 눈에 들어올 겁니다 — 실제로 쓰이는 코드는 9개뿐입니다."></div>
+
+  <h3>4.1 세 덩어리의 성격</h3>
+  <div class="tw"><table>
+    <tr><th>섹션</th><th>마디</th><th>하는 일</th></tr>
+    <tr><td><b>A</b></td><td>1~8 · 9~16</td><td>메이저 2-5-1-4 → 마이너 2-5-1. 밝음에서 어두움으로</td></tr>
+    <tr><td><b>B</b></td><td>17~24</td><td><b>순서를 뒤집는다.</b> 마이너 2-5-1 먼저 → 메이저 2-5-1. 어두움에서 밝음으로</td></tr>
+    <tr><td><b>C</b></td><td>25~32</td><td>마이너 2-5-1 → 하행 2-5 사슬 → 마지막 마이너 종지</td></tr>
+  </table></div>
+  <p class="lead">B가 A의 앞뒤를 뒤집은 것이라는 점 — 이것만 알면 B는 새로 외울 게 없습니다.</p>
+
+  <div class="w w-song" data-sec="all" data-mode="chord" data-bpm="80" data-rhy="char" data-secsel="1"
+    data-t="전곡 통과 (32마디)"
+    data-hint="구간 버튼으로 A1·A2·B·C만 따로 반복할 수도 있습니다. 처음에는 전곡을 한 번 흘려듣고, 이후 장에서 섹션별로 분해합니다."></div>
+
+  <h3>4.2 실제로 쓰이는 코드는 아홉 개</h3>
+  <p>32마디 전체에서 등장하는 코드입니다. 이것만 잡을 줄 알면 곡이 끝납니다.</p>
+  <div class="w w-nine" data-t="9개 코드 — 눌러서 폼 확인"
+    data-hint="Am7·D7·Gmaj7·Cmaj7은 G키의 2-5-1-4. F♯m7♭5·B7·Em7은 Em키의 2-5-1. A7·Dm7·G7은 C섹션의 하행 사슬용입니다."></div>
+</section>
+
+<!-- 5 -->
+<section class="page" id="p5">
+  <h2><span class="num">제 5 장</span>A 섹션 해부 (1~16마디)</h2>
+  <p class="lead">A는 두 번 똑같이 반복됩니다. 즉 32마디 중 절반이 이 8마디입니다.</p>
+
+  <div class="tw"><table>
+    <tr><th>마디</th><th>코드</th><th>G키 도수</th><th>Em키 도수</th><th>하는 일</th></tr>
+    <tr><td>1</td><td>Am7</td><td>2</td><td>4</td><td rowspan="3">메이저 2-5-1<br>밝은 도착</td></tr>
+    <tr><td>2</td><td>D7</td><td>5</td><td>7</td></tr>
+    <tr><td>3</td><td>Gmaj7</td><td><b>1</b></td><td>3</td></tr>
+    <tr><td>4</td><td>Cmaj7</td><td>4</td><td>6</td><td>다리 — 밝음에서 어두움으로 넘어감</td></tr>
+    <tr><td>5</td><td>F♯m7♭5</td><td>7</td><td>2</td><td rowspan="3">마이너 2-5-1<br>어두운 도착</td></tr>
+    <tr><td>6</td><td>B7</td><td>3(변형)</td><td>5</td></tr>
+    <tr><td>7-8</td><td>Em7</td><td>6</td><td><b>1</b></td></tr>
+  </table></div>
+
+  <p>한 코드가 두 개의 이름을 갖는다는 점에 주목하세요. <b>Cmaj7은 G키에서는 4도지만 Em키에서는 6도입니다.</b> 그래서 4마디가 두 조성을 잇는 다리 역할을 합니다.</p>
+
+  <div class="w w-song" data-sec="A1" data-mode="chord" data-bpm="72" data-rhy="four"
+    data-t="A 섹션 — 마디를 눌러 하나씩 확인"
+    data-hint="재생하지 않고 마디 버튼만 눌러도 그 코드가 울립니다. 폼을 하나씩 손에 익히세요."></div>
+
+  <h3>5.1 유일한 비다이아토닉 코드 — B7</h3>
+  <p>A 섹션에서 G 메이저 스케일 밖의 음을 쓰는 코드는 <b>B7 하나뿐</b>입니다. 다이아토닉이라면 Bm7(B D F♯ A)이어야 하는데, 3도를 반음 올려 <b>D♯</b>로 만든 것이 B7(B D♯ F♯ A)입니다.</p>
+  <p>이 D♯가 반음 위 E로 올라가려는 성질을 갖고, 그래서 Em7으로 강하게 해결됩니다. 솔로에서도 이 마디에서만 D 대신 D♯을 써야 합니다 — <b>곡 전체에서 유일하게 신경 쓸 음</b>입니다.</p>
+
+  <div class="w w-ab" data-a="11:m7:5" data-b="11:7:5" data-t="이 한 음이 전부"
+    data-hint="Bm7과 B7. 6마디에서 이 차이를 못 살리면 곡이 밋밋해집니다."></div>
+
+  <h3>5.2 A 섹션 쉘 보이싱 포지션</h3>
+  <div class="tw"><table>
+    <tr><th>마디</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7-8</td></tr>
+    <tr><th>코드</th><td>Am7</td><td>D7</td><td>Gmaj7</td><td>Cmaj7</td><td>F♯m7♭5</td><td>B7</td><td>Em7</td></tr>
+    <tr><th>폼</th><td class="f">5-x-5-5</td><td class="f">x-5-4-5</td><td class="f">3-x-4-4</td><td class="f">x-3-2-4</td><td class="f">2-x-2-2</td><td class="f">x-2-1-2</td><td class="f">0-x-0-0</td></tr>
+  </table></div>
+  <p class="lead">5프렛에서 0프렛까지 <b>한 방향으로 미끄러져 내려옵니다.</b> 손이 되돌아가는 일이 없습니다 — 초보자에게 이보다 친절한 곡이 없습니다.</p>
+</section>
+
+<!-- 6 -->
+<section class="page" id="p6">
+  <h2><span class="num">제 6 장</span>B 섹션 해부 (17~24마디)</h2>
+  <div class="big-idea">
+    <div class="k">B 섹션의 정체</div>
+    <p><b>A 섹션의 앞뒤를 뒤집은 것.</b></p>
+    <p style="font-size:14px;color:var(--mut)">A = 메이저 2-5-1 → 마이너 2-5-1 · B = 마이너 2-5-1 → 메이저 2-5-1</p>
+  </div>
+
+  <div class="tw"><table>
+    <tr><th>마디</th><th>코드</th><th>하는 일</th></tr>
+    <tr><td>17</td><td>F♯m7♭5</td><td rowspan="4">마이너 2-5-1<br>어두운 곳에서 <b>시작</b>합니다</td></tr>
+    <tr><td>18</td><td>B7</td></tr>
+    <tr><td>19-20</td><td>Em7</td></tr>
+    <tr><td>21</td><td>Am7</td><td rowspan="3">메이저 2-5-1<br>밝은 곳으로 <b>올라갑니다</b></td></tr>
+    <tr><td>22</td><td>D7</td></tr>
+    <tr><td>23-24</td><td>Gmaj7</td></tr>
+  </table></div>
+
+  <p>A는 밝음 → 어두움, B는 어두움 → 밝음. 거울처럼 뒤집혀 있습니다. 그래서 B가 끝나는 Gmaj7이 곡에서 가장 밝은 지점이고, 바로 다음 C 섹션에서 다시 떨어지기 시작합니다.</p>
+
+  <div class="w w-song" data-sec="B" data-mode="chord" data-bpm="72" data-rhy="char"
+    data-t="B 섹션 8마디"
+    data-hint="19~20마디 Em7이 두 마디, 23~24마디 Gmaj7이 두 마디입니다. 도착지에 머무는 시간이 길어 숨 쉴 공간이 생깁니다 — 솔로에서 프레이즈를 마무리하기 좋은 자리입니다."></div>
+
+  <h3>6.1 루트 사슬은 끊기지 않는다</h3>
+  <p>B 섹션 루트: <b>F♯ → B → E → A → D → G</b>. 여섯 코드가 전부 4도 진행으로 이어집니다. Em7에서 Am7으로 넘어가는 20→21마디도 4도 진행입니다 — 섹션 안이 하나의 사슬입니다.</p>
+
+  <div class="w w-chain" data-sec="B" data-t="B 섹션 루트 사슬"
+    data-hint="A 섹션과 완전히 같은 사슬입니다. 시작점만 F♯로 옮겼을 뿐입니다."></div>
+
+  <h3>6.2 B 섹션 포지션</h3>
+  <div class="tw"><table>
+    <tr><th>마디</th><td>17</td><td>18</td><td>19-20</td><td>21</td><td>22</td><td>23-24</td></tr>
+    <tr><th>코드</th><td>F♯m7♭5</td><td>B7</td><td>Em7</td><td>Am7</td><td>D7</td><td>Gmaj7</td></tr>
+    <tr><th>폼</th><td class="f">2-x-2-2</td><td class="f">x-2-1-2</td><td class="f">0-x-0-0</td><td class="f">5-x-5-5</td><td class="f">x-5-4-5</td><td class="f">3-x-4-4</td></tr>
+  </table></div>
+  <p>20→21마디에서 0프렛 → 5프렛으로 한 번 올라갑니다. 곡 전체에서 손이 크게 움직이는 유일한 자리이니, 이 이음매만 따로 연습해 두세요.</p>
+</section>
+
+<!-- 7 -->
+<section class="page" id="p7">
+  <h2><span class="num">제 7 장</span>C 섹션 해부 (25~32마디)</h2>
+  <p class="lead">곡에서 유일하게 새로운 재료가 나오는 구간. 그래도 원리는 같습니다 — 4도 진행.</p>
+
+  <div class="tw"><table>
+    <tr><th>마디</th><th>코드</th><th>하는 일</th></tr>
+    <tr><td>25</td><td>F♯m7♭5</td><td rowspan="2">마이너 2-5</td></tr>
+    <tr><td>26</td><td>B7</td></tr>
+    <tr><td>27</td><td>Em7 &nbsp;|&nbsp; A7</td><td rowspan="3"><b>하행 2-5 사슬</b><br>E→A→D→G→C, 한 마디에 두 코드씩</td></tr>
+    <tr><td>28</td><td>Dm7 &nbsp;|&nbsp; G7</td></tr>
+    <tr><td>29</td><td>Cmaj7</td></tr>
+    <tr><td>30</td><td>B7</td><td>마지막 도미넌트</td></tr>
+    <tr><td>31-32</td><td>Em7</td><td>최종 해결 — 집에 도착</td></tr>
+  </table></div>
+
+  <h3>7.1 27~29마디 — 하행 2-5 사슬</h3>
+  <p>여기가 이 곡에서 가장 재미있는 구간입니다. <b>Em7 → A7 → Dm7 → G7 → Cmaj7</b>, 다섯 코드가 두 마디 반 안에 몰려 있습니다.</p>
+  <ul>
+    <li><b>Em7 → A7 → Dm7</b> — D를 임시 목적지로 삼은 2-5-1</li>
+    <li><b>Dm7 → G7 → Cmaj7</b> — C를 목적지로 삼은 2-5-1</li>
+  </ul>
+  <p>즉 <b>2-5-1을 반음이 아니라 온음 단위로 미끄러뜨린 것</b>입니다. 하나가 끝나기 전에 다음이 시작되는, 재즈에서 아주 흔한 장치입니다.</p>
+  <p>속도가 두 배(한 마디에 두 코드)라 컴핑에서 처음 막히는 지점이기도 합니다. 이 구간만 따로 느리게 반복하세요.</p>
+
+  <div class="w w-song" data-sec="C" data-mode="chord" data-bpm="64" data-rhy="whole"
+    data-t="C 섹션 — 느리게 (64bpm)"
+    data-hint="27·28마디는 코드가 두 개씩이므로 각 2박입니다. 화면의 코드 이름이 마디 중간에 바뀌는 것을 확인하세요."></div>
+
+  <h3>7.2 왜 30마디가 Cmaj7 다음에 B7인가</h3>
+  <p>29마디 Cmaj7에서 30마디 B7로, 루트가 <b>반음 내려갑니다</b>. 곡에서 4도 진행이 아닌 유일한 진짜 예외입니다.</p>
+  <p>이유는 단순합니다 — 곡을 마이너로 끝내야 하기 때문입니다. Cmaj7은 밝은 곳인데 거기서 곡이 끝나면 안 되니, 곧바로 마이너의 5도 코드 B7을 놓아 Em7으로 끌어내립니다. <b>가장 밝은 지점에서 한 걸음 만에 어두운 종착지로 떨어지는</b> 구조입니다.</p>
+
+  <h3>7.3 C 섹션 포지션</h3>
+  <div class="tw"><table>
+    <tr><th>마디</th><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31-32</td></tr>
+    <tr><th>코드</th><td>F♯m7♭5</td><td>B7</td><td>Em7 / A7</td><td>Dm7 / G7</td><td>Cmaj7</td><td>B7</td><td>Em7</td></tr>
+    <tr><th>폼</th><td class="f">2-x-2-2</td><td class="f">x-2-1-2</td><td class="f">0-x-0-0 / 5-x-5-6</td><td class="f">x-5-3-5 / 3-x-3-4</td><td class="f">x-3-2-4</td><td class="f">x-2-1-2</td><td class="f">0-x-0-0</td></tr>
+  </table></div>
+
+  <div class="chk">
+    <div class="ct">셀프 체크</div>
+    <ol>
+      <li>27~29마디의 코드 다섯 개를 순서대로?<span class="ans">▸ Em7 → A7 → Dm7 → G7 → Cmaj7</span></li>
+      <li>그 안에 들어 있는 2-5-1 두 개는?<span class="ans">▸ Em7-A7-Dm7 (D 목적지) / Dm7-G7-Cmaj7 (C 목적지)</span></li>
+      <li>29→30마디가 4도 진행이 아닌 이유는?<span class="ans">▸ 밝은 Cmaj7에서 곡을 마이너(Em7)로 끝내기 위해 반음 내려 B7으로 감</span></li>
+    </ol>
+    <button class="btn sm rev">답 보기</button>
+  </div>
+</section>
+
+<!-- 8 -->
+<section class="page" id="p8">
+  <h2><span class="num">제 8 장</span>쉘 보이싱으로 전곡 치기</h2>
+  <p class="lead">이제 실제로 칩니다. 폼은 이미 아는 두 개뿐입니다 — 6번줄 루트, 5번줄 루트.</p>
+
+  <h3>8.1 전곡 포지션 한눈에</h3>
+  <div class="tw"><table>
+    <tr><th>코드</th><th>폼</th><th>루트 줄</th><th>등장 마디</th></tr>
+    <tr><td>Am7</td><td class="f">5-x-5-5</td><td>6번줄 5fr</td><td>1, 9, 21</td></tr>
+    <tr><td>D7</td><td class="f">x-5-4-5</td><td>5번줄 5fr</td><td>2, 10, 22</td></tr>
+    <tr><td>Gmaj7</td><td class="f">3-x-4-4</td><td>6번줄 3fr</td><td>3, 11, 23-24</td></tr>
+    <tr><td>Cmaj7</td><td class="f">x-3-2-4</td><td>5번줄 3fr</td><td>4, 12, 29</td></tr>
+    <tr><td>F♯m7♭5</td><td class="f">2-x-2-2</td><td>6번줄 2fr</td><td>5, 13, 17, 25</td></tr>
+    <tr><td>B7</td><td class="f">x-2-1-2</td><td>5번줄 2fr</td><td>6, 14, 18, 26, 30</td></tr>
+    <tr><td>Em7</td><td class="f">0-x-0-0</td><td>6번줄 개방</td><td>7-8, 15-16, 19-20, 27, 31-32</td></tr>
+    <tr><td>A7</td><td class="f">5-x-5-6</td><td>6번줄 5fr</td><td>27 후반</td></tr>
+    <tr><td>Dm7</td><td class="f">x-5-3-5</td><td>5번줄 5fr</td><td>28 전반</td></tr>
+    <tr><td>G7</td><td class="f">3-x-3-4</td><td>6번줄 3fr</td><td>28 후반</td></tr>
+  </table></div>
+  <p class="lead">전곡이 <b>0~5프렛</b> 안에서 끝납니다. 손을 이동할 일이 거의 없습니다.</p>
+
+  <h3>8.2 순서대로 확인하기</h3>
+  <div class="w w-song" data-sec="all" data-mode="chord" data-bpm="60" data-rhy="whole" data-secsel="1"
+    data-t="전곡 컴핑 — 온음표, 60bpm"
+    data-hint="먼저 소리 없이 마디 버튼만 눌러가며 손 모양을 확인하세요. 그다음 재생에 맞춰 함께 치면 됩니다. 온음표 = 마디마다 한 번만."></div>
+
+  <h3>8.3 두 개의 이음매</h3>
+  <p>손이 크게 움직이는 곳은 딱 두 군데입니다. 여기만 따로 반복하세요.</p>
+  <ol>
+    <li><b>16→17마디, 20→21마디</b> — Em7(0프렛) → F♯m7♭5 또는 Am7(2·5프렛). 개방 포지션에서 위로 올라갑니다.</li>
+    <li><b>27~28마디</b> — 한 마디에 코드 두 개. 0프렛 → 5프렛 → 5프렛 → 3프렛으로 빠르게 이동합니다.</li>
+  </ol>
+</section>
+
+<!-- 9 -->
+<section class="page" id="p9">
+  <h2><span class="num">제 9 장</span>보이스 리딩 — 곡을 잇는 실</h2>
+  <p class="lead">코드를 하나씩 잡는 것과, 코드를 <b>이어서</b> 치는 것은 다릅니다.</p>
+
+  <h3>9.1 두 음만 움직인다</h3>
+  <p>쉘 보이싱은 루트·3도·7도 세 음입니다. 이 중 성격을 결정하는 <b>3도와 7도(가이드톤)</b>가 코드 사이를 어떻게 이동하는지 보면, 곡 전체가 두 개의 가는 선으로 보이기 시작합니다.</p>
+  <p style="background:var(--sur);border-radius:10px;padding:12px 14px;font-size:14.5px">
+    <b style="color:var(--sage)">앞 코드의 3도 = 다음 코드의 7도</b> → 같은 음, 그대로 유지<br>
+    <b style="color:var(--tort)">앞 코드의 7도</b> → 반음 또는 온음 내려가 다음 코드의 3도가 됨
+  </p>
+
+  <div class="w w-song" data-sec="A1" data-mode="guide" data-bpm="56" data-rhy="whole"
+    data-t="가이드톤만 듣기 — A 섹션"
+    data-hint="루트를 뺐습니다. 두 음뿐인데 곡의 화성이 그대로 들립니다. 화면의 초록(유지)과 주황(하강)을 눈으로 따라가며 들어보세요."></div>
+
+  <h3>9.2 A 섹션의 가이드톤 이동</h3>
+  <div class="tw"><table>
+    <tr><th>전환</th><th>유지</th><th>하강</th></tr>
+    <tr><td>Am7 → D7</td><td>C</td><td>G → F♯ (반음)</td></tr>
+    <tr><td>D7 → Gmaj7</td><td>F♯</td><td>C → B (반음)</td></tr>
+    <tr><td>Gmaj7 → Cmaj7</td><td>B</td><td>F♯ → E (온음)</td></tr>
+    <tr><td>Cmaj7 → F♯m7♭5</td><td>E</td><td>B → A (온음)</td></tr>
+    <tr><td>F♯m7♭5 → B7</td><td>A</td><td>E → D♯ (반음)</td></tr>
+    <tr><td>B7 → Em7</td><td>—</td><td>A → G (온음)</td></tr>
+  </table></div>
+  <p>B7 → Em7만 "유지" 칸이 비어 있습니다. B7의 3도 D♯가 Em7의 7도 D와 반음 어긋나기 때문입니다. 대신 그 D♯는 <b>위로 반음 올라가 E(루트)</b>로 갑니다 — 마이너 종지 특유의 움직임입니다.</p>
+
+  <h3>9.3 왜 이게 중요한가</h3>
+  <p>컴핑에서는 손가락이 최소로 움직이니 빠른 템포에서도 안 무너지고, 솔로에서는 <b>이 두 선이 그대로 멜로디의 뼈대</b>가 됩니다. 다음 장의 타겟 훈련이 바로 이 선을 따라가는 연습입니다.</p>
+
+  <div class="w w-song" data-sec="all" data-mode="guide" data-bpm="60" data-rhy="whole" data-secsel="1"
+    data-t="전곡 가이드톤 라인"
+    data-hint="32마디 내내 두 음이 조금씩 내려가며 이어집니다. 이 흐름이 몸에 들어오면 코드 차트가 '점'이 아니라 '선'으로 읽힙니다."></div>
+</section>
+
+<!-- 10 -->
+<section class="page" id="p10">
+  <h2><span class="num">제 10 장</span>컴핑 리듬</h2>
+  <p class="lead">폼이 손에 붙으면 리듬을 얹습니다. 두 가지면 충분합니다.</p>
+
+  <div class="tw"><table>
+    <tr><th>박</th><td>1</td><td>2</td><td>&amp;</td><td>3</td><td>4</td></tr>
+    <tr><th>포 투 더 바</th><td>●</td><td>●</td><td></td><td>●</td><td>●</td></tr>
+    <tr><th>찰스턴</th><td>●</td><td></td><td>●</td><td></td><td></td></tr>
+  </table></div>
+
+  <ul>
+    <li><b>포 투 더 바</b> — 매 박마다 짧게 끊어 칩니다. 1930년대 빅밴드 리듬 기타의 표준. 박자를 미는 엔진 역할이라, 혼자 연습할 때 타임을 잡는 데 좋습니다.</li>
+    <li><b>찰스턴</b> — 1박과 2박 뒤에만 치고 나머지는 쉽니다. 콤보 재즈 컴핑의 기본형. <b>쉼표가 음만큼 중요합니다</b> — 그 빈 공간이 솔로의 자리입니다.</li>
+  </ul>
+
+  <div class="w w-song" data-sec="A1" data-mode="chord" data-bpm="80" data-rhy="four" data-rhysel="1"
+    data-t="리듬을 바꿔가며 — A 섹션"
+    data-hint="리듬 버튼으로 세 가지를 번갈아 들어보세요. 같은 코드 진행인데 성격이 완전히 달라집니다. 혼자 칠 때는 포 투 더 바, 누군가와 함께라면 찰스턴이 기본입니다."></div>
+
+  <h3>10.1 27~28마디를 조심하세요</h3>
+  <p>한 마디에 코드가 두 개인 구간에서는 리듬이 자연히 압축됩니다. 찰스턴을 그대로 쓰면 두 번째 코드를 놓치기 쉬우니, 이 두 마디만 <b>각 코드 2박씩 온음표로</b> 처리하는 것이 실전에서 흔한 해법입니다.</p>
+
+  <h3>10.2 템포 올리는 순서</h3>
+  <ol>
+    <li>60bpm 온음표로 전곡 무정지</li>
+    <li>60bpm 포 투 더 바</li>
+    <li>80bpm 포 투 더 바</li>
+    <li>80bpm 찰스턴</li>
+    <li>100~120bpm 찰스턴 (실전 템포)</li>
+  </ol>
+  <p class="lead">각 단계에서 <b>코드 전환이 리듬을 무너뜨리지 않을 때만</b> 다음으로 넘어갑니다.</p>
+</section>
+
+<!-- 11 -->
+<section class="page" id="p11">
+  <h2><span class="num">제 11 장</span>솔로 ① — 어디에 착지할 것인가</h2>
+  <div class="big-idea">
+    <div class="k">솔로의 첫 번째 규칙</div>
+    <p><b>코드가 바뀌는 순간, 그 코드의 3도에 내려앉는다.</b></p>
+  </div>
+  <p>이유는 9장에서 이미 봤습니다. 앞 코드의 7도가 다음 코드의 3도로 내려가는 것이 화성이 원하는 움직임이고, 3도는 코드가 밝은지 어두운지를 결정하는 음입니다. 거기 착지하면 <b>코드가 바뀌었다는 사실이 멜로디로 들립니다.</b></p>
+
+  <div class="w w-land" data-t="증명 — 착지 음만 바꿔서 들어보기"
+    data-hint="같은 반주, 같은 마디. 매 마디 1박에 어느 음으로 내려앉는지만 다릅니다. 루트는 베이스와 겹쳐서 정보가 없고, 5도는 어느 코드에서든 비슷해 변화가 안 들립니다. 3도만이 코드의 얼굴입니다."></div>
+
+  <h3>11.1 타겟 음 — 손바닥 안에 다 있다</h3>
+  <p>A 섹션 일곱 코드의 3도를 찾아보면, 전부 <b>5~8프렛 · 1~3번줄</b> 안에 들어옵니다.</p>
+  <div class="w w-box" data-t="A 섹션 타겟 박스"
+    data-hint="손은 그 자리에 두고 손가락만 옮기면 됩니다. 음을 눌러 소리를 확인해 보세요. 번호는 몇 번째 마디의 타겟인지입니다."></div>
+
+  <div class="tw"><table>
+    <tr><th>마디</th><th>코드</th><th>타겟(3도)</th><th>위치</th></tr>
+    <tr><td>1</td><td>Am7</td><td>C</td><td>3번줄 5프렛</td></tr>
+    <tr><td>2</td><td>D7</td><td>F♯</td><td>2번줄 7프렛</td></tr>
+    <tr><td>3</td><td>Gmaj7</td><td>B</td><td>1번줄 7프렛</td></tr>
+    <tr><td>4</td><td>Cmaj7</td><td>E</td><td>2번줄 5프렛</td></tr>
+    <tr><td>5</td><td>F♯m7♭5</td><td>A</td><td>1번줄 5프렛</td></tr>
+    <tr><td>6</td><td>B7</td><td>D♯</td><td>3번줄 8프렛</td></tr>
+    <tr><td>7-8</td><td>Em7</td><td>G</td><td>2번줄 8프렛</td></tr>
+  </table></div>
+
+  <h3>11.2 실제로 해보기</h3>
+  <div class="w w-song" data-sec="A1" data-mode="target" data-bpm="72" data-rhy="char" data-modesel="1" data-secsel="1"
+    data-t="타겟만 치기"
+    data-hint="'시범'은 앱이 타겟 음을 쳐 줍니다. '내 차례'로 바꾸면 반주만 흐르니 직접 치세요. 3~4박에 다음 타겟이 화면에 미리 뜹니다 — 그때 손가락을 옮겨두면 됩니다."></div>
+
+  <p class="lead">한 가지 예외 — 5마디 F♯m7♭5에서는 3도(A)보다 <b>♭5인 C음</b>이 더 재미있는 타겟입니다. 쉘 보이싱이 5도를 생략했으니 그 색을 솔로가 채우는 것이죠.</p>
+</section>
+
+<!-- 12 -->
+<section class="page" id="p12">
+  <h2><span class="num">제 12 장</span>솔로 ② — 어떻게 도착할 것인가</h2>
+  <p class="lead">착지점을 정했으면, 다음은 거기까지 가는 길입니다.</p>
+
+  <h3>12.1 접근음 — 규칙은 하나</h3>
+  <div class="big-idea">
+    <div class="k">외울 것</div>
+    <p><b>접근음은 언제나 같은 줄, 한 프렛 아래.</b></p>
+    <p style="font-size:14px;color:var(--mut)">앞 마디 4박에 한 칸 아래를 치고, 다음 마디 1박에 반 칸 올려 착지합니다.</p>
+  </div>
+  <p>이것을 <b>반음 접근(chromatic approach)</b>이라 합니다. 스케일에 없는 음이라도 상관없습니다 — 바로 다음에 해결되기 때문에 귀는 "지나가는 음"으로 듣습니다. 재즈 프레이즈가 재즈처럼 들리는 이유의 절반이 이것입니다.</p>
+
+  <div class="w w-song" data-sec="A1" data-mode="approach" data-bpm="66" data-rhy="char" data-modesel="1"
+    data-t="접근음 + 타겟"
+    data-hint="시범을 몇 번 들은 뒤 '내 차례'로 바꾸세요. 두 음짜리 프레이즈지만 이미 재즈처럼 들립니다."></div>
+
+  <h3>12.2 아르페지오로 채우기</h3>
+  <p>1박 착지가 익숙해지면, 남는 2·3·4박을 코드톤으로 채웁니다. 각 코드의 <b>R·3·5·7</b>만 오르내려도 절대 틀리지 않습니다. 쉘 보이싱에서 생략했던 5도가 여기서 되살아납니다.</p>
+
+  <div class="w w-song" data-sec="A1" data-mode="arp" data-bpm="66" data-rhy="char" data-modesel="1"
+    data-t="아르페지오 — R·3·5·7"
+    data-hint="시범에서는 4분음표로 R→3→5→7을 칩니다. 코드톤의 지도를 손에 새기는 단계입니다."></div>
+
+  <h3>12.3 자유 — 규칙은 하나만 남긴다</h3>
+  <p>2·3·4박에는 무엇을 쳐도 됩니다. 스케일 음이든 반음이든, 헤매도 상관없습니다. <b>1박에만 타겟에 도착</b>하면 코드에 맞는 소리로 들립니다.</p>
+
+  <div class="w w-song" data-sec="all" data-mode="free" data-bpm="76" data-rhy="char" data-secsel="1" data-scalesel="1"
+    data-t="자유 애들립 — 전곡"
+    data-hint="반주만 흐릅니다. 화면에는 현재 타겟과 다음 타겟이 계속 표시됩니다. '스케일 음 표시'를 켜면 쓸 수 있는 음이 작은 점으로 나타납니다."></div>
+
+  <h3>12.4 이 곡에서 신경 쓸 음은 딱 하나</h3>
+  <p>곡 전체가 G 메이저 스케일(= E 마이너 스케일) 일곱 음으로 커버됩니다. 예외는 <b>B7 마디의 D♯</b> 하나뿐입니다(6·14·18·26·30마디).</p>
+  <p>즉 솔로할 때 생각할 것은 이렇게 줄어듭니다 — <b>G 메이저 스케일을 치되, B7이 나오면 D를 D♯로 바꾼다.</b> 그리고 매 마디 1박은 타겟에 착지한다. 그게 전부입니다.</p>
+
+  <div class="chk">
+    <div class="ct">셀프 체크</div>
+    <ol>
+      <li>접근음의 규칙은?<span class="ans">▸ 같은 줄, 타겟보다 한 프렛 아래</span></li>
+      <li>이 곡에서 G 메이저 스케일 밖의 음은?<span class="ans">▸ D♯ (B7 마디에서만)</span></li>
+      <li>자유 애들립에서 지켜야 할 유일한 규칙은?<span class="ans">▸ 매 마디 1박에 그 코드의 타겟(3도)에 착지</span></li>
+    </ol>
+    <button class="btn sm rev">답 보기</button>
+  </div>
+</section>
+
+<!-- 13 -->
+<section class="page" id="p13">
+  <h2><span class="num">제 13 장</span>6주 연습 로드맵</h2>
+  <p class="lead">하루 20분 기준. 각 주의 통과 기준을 만족하기 전에는 다음으로 넘어가지 않습니다.</p>
+
+  <h3>1주차 — 코드 아홉 개</h3>
+  <ul>
+    <li>(5분) 9개 코드 폼을 하나씩 잡고 뮤트 점검 — 세 음만 나는지</li>
+    <li>(10분) A 섹션 8마디를 온음표로, 60bpm. 코드 이름을 입으로 말하며</li>
+    <li>(5분) B 섹션 8마디 동일하게</li>
+  </ul>
+  <p style="color:var(--sage);font-size:14px"><b>통과</b> — A·B 섹션을 화면 없이 온음표로 완주</p>
+
+  <h3>2주차 — 전곡 컴핑</h3>
+  <ul>
+    <li>(5분) 27~28마디만 따로 (한 마디 두 코드)</li>
+    <li>(5분) 16→17, 20→21 이음매만 따로</li>
+    <li>(10분) 전곡 32마디 온음표 60bpm 무정지</li>
+  </ul>
+  <p style="color:var(--sage);font-size:14px"><b>통과</b> — 전곡 무정지 2회 연속</p>
+
+  <h3>3주차 — 리듬</h3>
+  <ul>
+    <li>(10분) 전곡 포 투 더 바, 60 → 80bpm</li>
+    <li>(10분) 전곡 찰스턴, 60 → 80bpm</li>
+  </ul>
+  <p style="color:var(--sage);font-size:14px"><b>통과</b> — 80bpm 찰스턴으로 전곡, 코드 전환이 리듬을 흔들지 않음</p>
+
+  <h3>4주차 — 타겟</h3>
+  <ul>
+    <li>(5분) 타겟 박스 7음 위치 암기 (11장)</li>
+    <li>(10분) A 섹션 타겟만 치기 — 시범 → 내 차례</li>
+    <li>(5분) B·C 섹션 타겟 확인</li>
+  </ul>
+  <p style="color:var(--sage);font-size:14px"><b>통과</b> — A 섹션 전체를 타겟 온음표로, 72bpm에서 놓치지 않음</p>
+
+  <h3>5주차 — 접근음과 아르페지오</h3>
+  <ul>
+    <li>(10분) 접근음 + 타겟, A → B → C 섹션</li>
+    <li>(10분) 아르페지오 R·3·5·7, 전곡</li>
+  </ul>
+  <p style="color:var(--sage);font-size:14px"><b>통과</b> — 전곡을 아르페지오만으로 완주</p>
+
+  <h3>6주차 — 자유 애들립</h3>
+  <ul>
+    <li>(5분) 워밍업 — 전곡 컴핑</li>
+    <li>(15분) 자유 솔로, 1박 착지만 지키며. 한 코러스씩 반복</li>
+  </ul>
+  <p style="color:var(--sage);font-size:14px"><b>통과</b> — 화면을 보지 않고 한 코러스 솔로, 각 마디 1박이 코드톤</p>
+
+  <h3>이후</h3>
+  <p>같은 곡을 <b>G minor로 옮겨</b> 반복하면 이조 훈련이 됩니다(부록). 그다음은 다른 스탠더드 — 이 곡의 사슬을 아는 순간 <i>Fly Me To The Moon</i>, <i>All The Things You Are</i>, <i>Blue Bossa</i>가 전부 같은 재료로 보입니다.</p>
+</section>
+
+<!-- 14 -->
+<section class="page" id="p14">
+  <h2><span class="num">부록</span>듣기 · 이조 · 용어</h2>
+
+  <h3>A. 듣기 가이드</h3>
+  <p>멜로디는 반드시 <b>귀로</b> 익히세요. 악보보다 녹음이 정확합니다. 아래 연주들은 접근 방식이 서로 크게 달라, 같은 곡의 여러 얼굴을 보여줍니다.</p>
+  <div class="tw"><table>
+    <tr><th>연주</th><th>들을 점</th></tr>
+    <tr><td>Cannonball Adderley &amp; Miles Davis — <i>Somethin' Else</i> (1958)</td><td>재즈 표준화의 기준점. 느린 템포, 여백이 많은 컴핑</td></tr>
+    <tr><td>Bill Evans</td><td>가이드톤 보이스 리딩의 교과서. 화성을 어떻게 '흐르게' 만드는지</td></tr>
+    <tr><td>Chet Baker</td><td>멜로디를 거의 그대로 부르듯 연주 — 테마 파악에 가장 좋음</td></tr>
+    <tr><td>Wes Montgomery</td><td>기타 솔로의 전형. 코드톤 착지가 선명하게 들림</td></tr>
+    <tr><td>Eva Cassidy</td><td>보컬 버전. 가사와 프레이징의 호흡</td></tr>
+  </table></div>
+  <p class="tip lead">듣는 순서 — ① 멜로디만 따라 흥얼거릴 수 있을 때까지 ② 코드 변화를 귀로 짚어보기 ③ 솔로에서 각 마디 1박의 음이 무엇인지 맞혀보기</p>
+
+  <h3>B. G minor로 이조하기</h3>
+  <p>실전 잼에서는 G minor가 더 흔합니다. 도수는 완전히 같고 위치만 옮기면 됩니다.</p>
+  <div class="tw"><table>
+    <tr><th>도수</th><th>E minor (이 학습서)</th><th>G minor (실전)</th></tr>
+    <tr><td>2 (메이저)</td><td>Am7</td><td>Cm7</td></tr>
+    <tr><td>5 (메이저)</td><td>D7</td><td>F7</td></tr>
+    <tr><td>1 (메이저)</td><td>Gmaj7</td><td>B♭maj7</td></tr>
+    <tr><td>4 (메이저)</td><td>Cmaj7</td><td>E♭maj7</td></tr>
+    <tr><td>2 (마이너)</td><td>F♯m7♭5</td><td>Am7♭5</td></tr>
+    <tr><td>5 (마이너)</td><td>B7</td><td>D7</td></tr>
+    <tr><td>1 (마이너)</td><td>Em7</td><td>Gm7</td></tr>
+  </table></div>
+  <p>쉘 보이싱 폼은 그대로이고 프렛만 3칸 위로 옮기면 됩니다(E→G는 단3도 위). 개방현을 쓰던 Em7 자리가 Gm7(3-x-3-3)이 되므로 오히려 폼이 일정해집니다.</p>
+
+  <h3>C. 용어</h3>
+  <div class="tw"><table>
+    <tr><th>용어</th><th>뜻</th></tr>
+    <tr><td>AABC</td><td>8마디 네 덩어리로 이루어진 32마디 형식. A가 두 번 반복</td></tr>
+    <tr><td>가이드톤</td><td>코드의 3도와 7도. 코드의 성격을 결정하는 두 음</td></tr>
+    <tr><td>관계조</td><td>구성음이 같고 중심음만 다른 메이저·마이너 짝 (G major ↔ E minor)</td></tr>
+    <tr><td>반음 접근</td><td>목표 음의 반음 위·아래를 먼저 치고 바로 해결하는 장치</td></tr>
+    <tr><td>4도 진행 / 4도권</td><td>루트가 4도씩 올라가는(= 5도씩 떨어지는) 진행. 재즈 화성의 기본 추진력. 5도권을 반대 방향으로 도는 것과 같다</td></tr>
+    <tr><td>세컨더리 도미넌트</td><td>1도가 아닌 코드를 임시 목적지로 삼는 도미넌트 (이 곡의 A7)</td></tr>
+    <tr><td>쉘 보이싱</td><td>4화음에서 5도를 빼고 루트·3도·7도만 남긴 폼</td></tr>
+    <tr><td>컴핑</td><td>코드 악기의 반주. accompaniment의 준말</td></tr>
+    <tr><td>코러스</td><td>곡의 32마디 형식을 한 번 도는 것. "두 코러스 솔로" = 64마디</td></tr>
+    <tr><td>타겟</td><td>코드가 바뀌는 순간 착지할 음. 이 학습서에서는 각 코드의 3도</td></tr>
+    <tr><td>m7♭5</td><td>하프 디미니시드. 마이너 2-5-1의 2도. 쉘에서는 m7과 동일하게 잡음</td></tr>
+  </table></div>
+
+  <p class="lead" style="margin-top:24px">이 곡이 손에 붙으면, 다음 스탠더드는 절반쯤 이미 아는 상태에서 시작하게 됩니다. Autumn Leaves가 "첫 곡"인 이유입니다.</p>
+</section>
+
+</main>
+<nav id="bar">
+  <button id="prev">‹ 이전</button>
+  <button id="toctog" class="mid">목차</button>
+  <button id="next">다음 ›</button>
+</nav>
+<div id="toc"><h3>목차</h3><div id="toclist"></div><button class="close" id="tocclose">닫기</button></div>
+<script id="core">
+/* ───────── 핵심 데이터 · 이론 로직 (DOM 없음) ───────── */
+const NN=['C','D♭','D','E♭','E','F','G♭','G','A♭','A','B♭','B'];
+const KEYS=[{n:'C',pc:0},{n:'F',pc:5},{n:'B♭',pc:10},{n:'E♭',pc:3},{n:'A♭',pc:8},{n:'D♭',pc:1},
+            {n:'G♭',pc:6},{n:'B',pc:11},{n:'E',pc:4},{n:'A',pc:9},{n:'D',pc:2},{n:'G',pc:7}];
+const DEG_OFF={1:0,2:2,3:4,4:5,5:7,6:9,7:11};
+const DEG_Q={1:'maj7',2:'m7',3:'m7',4:'maj7',5:'7',6:'m7',7:'m7b5'};
+const CYCLE=[7,3,6,2,5,1,4];
+const QINT={maj7:{t:4,s:11},'7':{t:4,s:10},m7:{t:3,s:10},m7b5:{t:3,s:10}};
+const QLABEL={maj7:'maj7','7':'7',m7:'m7',m7b5:'m7♭5'};
+const OPEN_PC={6:4,5:9};
+const OPEN_FREQ={6:82.407,5:110.0,4:146.832,3:195.998};
+/* 교대(최소 이동) 사이클: 키별 시작 패턴. p:'A'=7도 코드를 6번줄에서 시작, 'B'=5번줄에서 시작. s=시작 프렛 */
+const ALT={'C':{p:'A',s:7},'D♭':{p:'A',s:8},'D':{p:'A',s:9},'E♭':{p:'A',s:10},'E':{p:'A',s:11},
+           'F':{p:'B',s:7},'G♭':{p:'B',s:8},'G':{p:'B',s:9},'A♭':{p:'B',s:10},'A':{p:'B',s:11},
+           'B♭':{p:'B',s:12},'B':{p:'A',s:6}};
+
+function shellShape(rootPc,str,q,forceR){
+  let R=(forceR!==undefined)?forceR:((rootPc-OPEN_PC[str])%12+12)%12;
+  const mk=R=>{
+    const f={},d={};
+    if(str===6){
+      f[6]=R; f[5]='x';
+      f[4]=(q==='maj7')?R+1:R;
+      f[3]=(q==='m7'||q==='m7b5')?R:R+1;
+      d[6]='R'; d[4]='7'; d[3]='3';
+    }else{
+      f[5]=R; f[6]='x';
+      f[4]=(q==='m7'||q==='m7b5')?R-2:R-1;
+      f[3]=(q==='maj7')?R+1:R;
+      d[5]='R'; d[4]='3'; d[3]='7';
+    }
+    f[2]='x'; f[1]='x';
+    return {frets:f,deg:d,root:R,str,q,rootPc};
+  };
+  let s=mk(R);
+  const bad=[6,5,4,3].some(k=>typeof s.frets[k]==='number'&&s.frets[k]<0);
+  if(bad&&forceR===undefined){R+=12;s=mk(R);}
+  return s;
+}
+function chordTones(pc,q){return {t3:(pc+QINT[q].t)%12,t7:(pc+QINT[q].s)%12};}
+function chordName(pc,q){return NN[pc]+QLABEL[q];}
+function fretsStr(sh){return [6,5,4,3].map(s=>{const f=sh.frets[s];return f==='x'?'x':f;}).join('-');}
+
+function cycleChords(keyName,mode){
+  const key=KEYS.find(k=>k.n===keyName);
+  const alt=ALT[keyName];
+  return CYCLE.map((deg,i)=>{
+    const pc=(key.pc+DEG_OFF[deg])%12, q=DEG_Q[deg];
+    let str,forceR;
+    if(mode==='alt'){
+      const pat=(alt.p==='A')?[6,5,6,5,6,5,6]:[5,6,5,6,5,6,5];
+      str=pat[i];
+      forceR=(alt.p==='A')?alt.s-2*Math.floor(i/2):alt.s-2*Math.ceil(i/2);
+    }else{
+      str=(mode==='s6')?6:5;
+    }
+    return {deg,pc,q,name:chordName(pc,q),shape:shellShape(pc,str,q,forceR)};
+  });
+}
+/* 앞 코드 → 현재 코드의 가이드톤 이동 정보 */
+function gtMove(chords,i){
+  if(i===0)return null;
+  const p=chords[i-1],c=chords[i];
+  const pT=chordTones(p.pc,p.q),cT=chordTones(c.pc,c.q);
+  const gap=((pT.t7-cT.t3)%12+12)%12;
+  return {keep:NN[pT.t3],from:NN[pT.t7],to:NN[cT.t3],gap};
+}
+
+/* ───────── 오디오 (Web Audio 합성) ───────── */
+let AC=null;
+function ac(){
+  if(!AC){AC=new (window.AudioContext||window.webkitAudioContext)();}
+  if(AC.state==='suspended')AC.resume();
+  return AC;
+}
+function pluck(freq,t,dur=1.5,vol=0.3){
+  const c=ac(),o=c.createOscillator(),f=c.createBiquadFilter(),g=c.createGain();
+  o.type='triangle';o.frequency.value=freq;
+  f.type='lowpass';f.frequency.setValueAtTime(2600,t);
+  f.frequency.exponentialRampToValueAtTime(750,t+dur);
+  g.gain.setValueAtTime(0.0001,t);
+  g.gain.exponentialRampToValueAtTime(vol,t+0.008);
+  g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+  o.connect(f);f.connect(g);g.connect(c.destination);
+  o.start(t);o.stop(t+dur+0.05);
+}
+function noteFreq(str,fret){return OPEN_FREQ[str]*Math.pow(2,fret/12);}
+function strum(sh,t){
+  const c=ac();let tt=(t!==undefined)?t:c.currentTime+0.02;
+  [6,5,4,3].forEach(s=>{
+    const f=sh.frets[s];
+    if(typeof f==='number'){pluck(noteFreq(s,f),tt,1.6);tt+=0.035;}
+  });
+}
+function playGuideTones(sh){
+  const c=ac();let t=c.currentTime+0.02;
+  const gs=[4,3].filter(s=>typeof sh.frets[s]==='number');
+  gs.forEach(s=>{pluck(noteFreq(s,sh.frets[s]),t,1.1,0.32);t+=0.55;});
+  gs.forEach(s=>pluck(noteFreq(s,sh.frets[s]),t+0.15,1.5,0.3));
+}
+function click(t,acc){
+  const c=ac(),o=c.createOscillator(),g=c.createGain();
+  o.type='square';o.frequency.value=acc?1700:1150;
+  g.gain.setValueAtTime(acc?0.16:0.09,t);
+  g.gain.exponentialRampToValueAtTime(0.0001,t+0.05);
+  o.connect(g);g.connect(c.destination);o.start(t);o.stop(t+0.06);
+}
+function beep(){const c=ac();click(c.currentTime+0.02,true);click(c.currentTime+0.22,true);}
+
+/* ───────── 코드 다이어그램 SVG ───────── */
+function diagramSVG(sh){
+  const strs=[6,5,4,3,2,1],sp=34,x0=26,topY=32,fh=38;
+  const nums=[6,5,4,3].map(s=>sh.frets[s]).filter(f=>typeof f==='number'&&f>0);
+  const lo=nums.length?Math.min.apply(null,nums):1;
+  const hi=nums.length?Math.max.apply(null,nums):3;
+  const start=(hi<=4)?1:lo;
+  const rows=Math.max(4,hi-start+1);
+  const W=x0*2+sp*5+30,H=topY+rows*fh+14;
+  let s='<svg viewBox="0 0 '+W+' '+H+'" width="'+Math.min(W,250)+'" style="max-width:100%;height:auto" xmlns="http://www.w3.org/2000/svg">';
+  for(let r=0;r<=rows;r++){
+    const y=topY+r*fh;
+    s+='<line x1="'+x0+'" y1="'+y+'" x2="'+(x0+5*sp)+'" y2="'+y+'" stroke="var(--line)" stroke-width="1.5"/>';
+  }
+  strs.forEach((st,i)=>{
+    const x=x0+i*sp;
+    s+='<line x1="'+x+'" y1="'+topY+'" x2="'+x+'" y2="'+(topY+rows*fh)+'" stroke="var(--line)" stroke-width="1.5"/>';
+  });
+  if(start===1){
+    s+='<rect x="'+(x0-2)+'" y="'+(topY-5)+'" width="'+(5*sp+4)+'" height="6" rx="2" fill="var(--mut)"/>';
+  }else{
+    s+='<text x="'+(x0+5*sp+8)+'" y="'+(topY+fh*0.62)+'" fill="var(--mut)" font-size="13">'+start+'fr</text>';
+  }
+  strs.forEach((st,i)=>{
+    const x=x0+i*sp,f=sh.frets[st];
+    if(f==='x'||f===undefined){
+      s+='<text x="'+x+'" y="'+(topY-11)+'" fill="var(--mut)" font-size="14" text-anchor="middle">✕</text>';
+    }else if(f===0){
+      s+='<circle cx="'+x+'" cy="'+(topY-15)+'" r="6.5" fill="none" stroke="var(--tx)" stroke-width="1.6"/>';
+    }else{
+      const y=topY+(f-start+0.5)*fh,d=sh.deg[st];
+      const col=(d==='R')?'var(--brass)':(d==='3')?'var(--tort)':'var(--sage)';
+      s+='<circle cx="'+x+'" cy="'+y+'" r="13" fill="'+col+'"/>';
+      s+='<text x="'+x+'" y="'+(y+4.5)+'" fill="#1c1610" font-size="12.5" font-weight="700" text-anchor="middle">'+d+'</text>';
+      if(f===0){}
+    }
+  });
+  strs.forEach((st,i)=>{
+    const x=x0+i*sp,f=sh.frets[st];
+    if(f===0&&sh.deg[st]){
+      const d=sh.deg[st];
+      s+='<text x="'+x+'" y="'+(topY-26)+'" fill="var(--mut)" font-size="10" text-anchor="middle">'+d+'</text>';
+    }
+  });
+  s+='<text x="'+x0+'" y="'+(H-1)+'" fill="var(--mut)" font-size="10">6번줄</text>';
+  s+='<text x="'+(x0+5*sp)+'" y="'+(H-1)+'" fill="var(--mut)" font-size="10" text-anchor="end">1번줄</text>';
+  s+='</svg>';
+  return s;
+}
+</script>
+<script id="book">
+/* ═══ 곡 데이터 ═══ */
+const NSH=['C','C♯','D','D♯','E','F','F♯','G','G♯','A','A♯','B'];
+const OPENM={1:64,2:59,3:55,4:50,5:45,6:40};
+const CHD={'Am7':[9,'m7'],'D7':[2,'7'],'Gmaj7':[7,'maj7'],'Cmaj7':[0,'maj7'],
+ 'F♯m7♭5':[6,'m7b5'],'B7':[11,'7'],'Em7':[4,'m7'],'A7':[9,'7'],'Dm7':[2,'m7'],'G7':[7,'7']};
+const FORM=[
+ ['A1','Am7','D7','Gmaj7','Cmaj7','F♯m7♭5','B7','Em7','Em7'],
+ ['A2','Am7','D7','Gmaj7','Cmaj7','F♯m7♭5','B7','Em7','Em7'],
+ ['B','F♯m7♭5','B7','Em7','Em7','Am7','D7','Gmaj7','Gmaj7'],
+ ['C','F♯m7♭5','B7','Em7|A7','Dm7|G7','Cmaj7','B7','Em7','Em7']];
+const GSC=[7,9,11,0,2,4,6];
+const BARS=(function(){
+  const out=[];let n=0,prev=5;
+  FORM.forEach(row=>{const sec=row[0];
+    for(let i=1;i<=8;i++){n++;
+      const cs=row[i].split('|').map(nm=>{
+        const pc=CHD[nm][0],q=CHD[nm][1];
+        const a=shellShape(pc,6,q),b=shellShape(pc,5,q);
+        const sh=(Math.abs(a.root-prev)<=Math.abs(b.root-prev))?a:b;
+        prev=sh.root;
+        const t=chordTones(pc,q);
+        return {nm,pc,q,sh,t3:t.t3,t7:t.t7,t5:(pc+7)%12};
+      });
+      out.push({n,sec,cs});
+    }});
+  return out;
+})();
+const SECS={A1:[0,8],A2:[8,16],B:[16,24],C:[24,32],all:[0,32]};
+/* A섹션 타겟 박스 (5~8프렛 · 1~3번줄) */
+const TBOX=[{i:1,n:'C',s:3,f:5},{i:2,n:'F♯',s:2,f:7},{i:3,n:'B',s:1,f:7},{i:4,n:'E',s:2,f:5},
+  {i:5,n:'A',s:1,f:5},{i:6,n:'D♯',s:3,f:8},{i:7,n:'G',s:2,f:8}];
+TBOX.forEach(t=>t.midi=OPENM[t.s]+t.f);
+function tgtPos(pc){
+  for(let i=0;i<TBOX.length;i++)if(TBOX[i].midi%12===pc)return TBOX[i];
+  return null;
+}
+function barScale(bar){
+  let sc=GSC.slice();
+  if(bar.cs.some(c=>c.nm==='B7')){sc=sc.filter(p=>p!==2);sc.push(3);}
+  if(bar.cs.some(c=>c.nm==='A7')){sc=sc.filter(p=>p!==0);sc.push(1);}
+  return sc;
+}
+/* ═══ 오디오 ═══ */
+function mF(m){return 440*Math.pow(2,(m-69)/12);}
+function comp(sh,t,dur,vol){let tt=t;[6,5,4,3].forEach(s=>{const f=sh.frets[s];
+  if(typeof f==='number'){pluck(noteFreq(s,f),tt,dur,vol);tt+=0.026;}});}
+function gt2(sh,t,dur,vol){let tt=t;[4,3].forEach(s=>{const f=sh.frets[s];
+  if(typeof f==='number'){pluck(noteFreq(s,f),tt,dur,vol||0.32);tt+=0.03;}});}
+function bass(pc,t,dur,vol){
+  let m=pc+36;while(m<33)m+=12;while(m>45)m-=12;
+  const c=ac(),o=c.createOscillator(),g=c.createGain();
+  o.type='sine';o.frequency.value=mF(m);
+  g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(vol||0.4,t+0.012);
+  g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+  o.connect(g);g.connect(c.destination);o.start(t);o.stop(t+dur+0.05);
+}
+function mel(m,t,dur,vol){pluck(mF(m),t,dur,vol||0.4);}
+function place(pc,ref){let m=pc;while(m<ref-6)m+=12;while(m>ref+6)m-=12;
+  while(m<55)m+=12;while(m>79)m-=12;return m;}
+function voice(pcs,base){const o=[];let low=base;pcs.forEach(p=>{let m=p;while(m<low)m+=12;o.push(m);low=m+1;});return o;}
+/* ═══ 박스 지판 SVG ═══ */
+function boxSVG(o){
+  o=o||{};
+  const f0=4,fn=5,ns=3,fw=52,sh=38,x0=30,y0=24;
+  const W=x0+fn*fw+16,H=y0+(ns-1)*sh+30;
+  let s='<svg viewBox="0 0 '+W+' '+H+'" width="'+Math.min(W,330)+'" style="max-width:100%;height:auto" xmlns="http://www.w3.org/2000/svg">';
+  for(let i=0;i<=fn;i++){const x=x0+i*fw;
+    s+='<line x1="'+x+'" y1="'+y0+'" x2="'+x+'" y2="'+(y0+(ns-1)*sh)+'" stroke="var(--line)" stroke-width="1.5"/>';}
+  for(let j=0;j<ns;j++){const y=y0+j*sh;
+    s+='<line x1="'+x0+'" y1="'+y+'" x2="'+(x0+fn*fw)+'" y2="'+y+'" stroke="var(--line)" stroke-width="1.5"/>';
+    s+='<text x="'+(x0-8)+'" y="'+(y+4)+'" fill="var(--mut)" font-size="11" text-anchor="end">'+(j+1)+'</text>';}
+  for(let i=0;i<fn;i++)s+='<text x="'+(x0+i*fw+fw/2)+'" y="'+(H-8)+'" fill="var(--mut)" font-size="11" text-anchor="middle">'+(f0+i)+'</text>';
+  const px=f=>x0+(f-f0)*fw+fw/2, py=st=>y0+(st-1)*sh;
+  const hits=[];
+  if(o.scale){for(let st=1;st<=ns;st++)for(let f=f0;f<f0+fn;f++){
+    const pc=(OPENM[st]+f)%12;
+    if(o.scale.indexOf(pc)>=0){s+='<circle cx="'+px(f)+'" cy="'+py(st)+'" r="4" fill="var(--mut)" opacity="0.5"/>';
+      hits.push([px(f),py(st),OPENM[st]+f]);}}}
+  if(o.approach){const a=o.approach;
+    s+='<circle cx="'+px(a.f)+'" cy="'+py(a.s)+'" r="13" fill="var(--bg)" stroke="var(--tort)" stroke-width="2.5"/>';
+    s+='<text x="'+px(a.f)+'" y="'+(py(a.s)+4)+'" fill="var(--tort)" font-size="10.5" font-weight="700" text-anchor="middle">'+a.n+'</text>';
+    hits.push([px(a.f),py(a.s),a.midi]);}
+  (o.dim||[]).forEach(d=>{
+    s+='<circle cx="'+px(d.f)+'" cy="'+py(d.s)+'" r="12" fill="none" stroke="var(--brass)" stroke-width="1.4" opacity="0.5"/>';
+    s+='<text x="'+px(d.f)+'" y="'+(py(d.s)+4)+'" fill="var(--brass)" font-size="10" opacity="0.75" text-anchor="middle">'+d.n+'</text>';
+    hits.push([px(d.f),py(d.s),d.midi]);});
+  if(o.main){const m=o.main;
+    s+='<circle cx="'+px(m.f)+'" cy="'+py(m.s)+'" r="17" fill="var(--brass)"/>';
+    s+='<text x="'+px(m.f)+'" y="'+(py(m.s)+5)+'" fill="#1c1610" font-size="12.5" font-weight="700" text-anchor="middle">'+m.n+'</text>';
+    hits.push([px(m.f),py(m.s),m.midi]);}
+  hits.forEach(h=>{s+='<circle cx="'+h[0]+'" cy="'+h[1]+'" r="18" fill="transparent" data-m="'+h[2]+'"/>';});
+  return s+'</svg>';
+}
+/* ═══ 공통 ═══ */
+const $=id=>document.getElementById(id);
+const mk=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!==undefined)e.innerHTML=h;return e;};
+function btn(l,c,fn){const b=mk('button','btn '+(c||''),l);b.addEventListener('click',fn);return b;}
+let STOPPERS=[];
+function stopAll(){STOPPERS.forEach(f=>{try{f();}catch(e){}});}
+function wireBox(el){el.addEventListener('click',e=>{const t=e.target.closest('[data-m]');
+  if(t)mel(+t.getAttribute('data-m'),ac().currentTime+0.02,1.4,0.4);});}
+function head(el){if(el.dataset.t)el.appendChild(mk('div','dt',el.dataset.t));}
+function hint(el){if(el.dataset.hint)el.appendChild(mk('div','hint',el.dataset.hint));}
+function moveHTML(a,b){
+  if(!a)return '<span style="color:var(--mut)">시작</span>';
+  if(a.t3!==b.t7)return '<span class="fall">'+NSH[a.t7]+'→'+NSH[b.t3]+'</span> <span style="color:var(--mut)">(유지음 없음 — 마이너 종지)</span>';
+  const g=((a.t7-b.t3)%12+12)%12;
+  return '<span class="keep">'+NSH[a.t3]+' 유지</span> · <span class="fall">'+NSH[a.t7]+'→'+NSH[b.t3]+' ('+(g===1?'반음':'온음')+'↓)</span>';
+}
+/* ═══ 메인 플레이어 ═══ */
+function buildSong(el){
+  head(el);
+  const S={sec:el.dataset.sec||'A1',mode:el.dataset.mode||'chord',
+    rhy:el.dataset.rhy||'char',bpm:+(el.dataset.bpm||72),
+    demo:true,scale:false,on:false,bi:0,beat:0,nt:0,timer:null,ci:0};
+  if(el.dataset.secsel==='1'){
+    const r=mk('div','row');
+    ['A1','A2','B','C','all'].forEach(k=>{
+      const b=btn(k==='all'?'전곡':k+' 섹션','sm',()=>{S.sec=k;setSel(r,b);rebuild();});
+      if(k===S.sec)b.classList.add('on');r.appendChild(b);
+    });
+    el.appendChild(r);
+  }
+  if(el.dataset.rhysel==='1'){
+    const r=mk('div','row');
+    [['whole','온음표'],['four','포 투 더 바'],['char','찰스턴']].forEach(x=>{
+      const b=btn(x[1],'sm',()=>{S.rhy=x[0];setSel(r,b);});
+      if(x[0]===S.rhy)b.classList.add('on');r.appendChild(b);
+    });
+    el.appendChild(r);
+  }
+  if(el.dataset.modesel==='1'){
+    const r=mk('div','row');
+    [[true,'시범 (앱이 침)'],[false,'내 차례 (반주만)']].forEach(x=>{
+      const b=btn(x[1],'sm',()=>{S.demo=x[0];setSel(r,b);});
+      if(x[0]===S.demo)b.classList.add('on');r.appendChild(b);
+    });
+    el.appendChild(r);
+  }
+  if(el.dataset.scalesel==='1'){
+    const r=mk('div','row');
+    [[false,'타겟만'],[true,'스케일 음도 표시']].forEach(x=>{
+      const b=btn(x[1],'sm',()=>{S.scale=x[0];setSel(r,b);show(S.bi);});
+      if(x[0]===S.scale)b.classList.add('on');r.appendChild(b);
+    });
+    el.appendChild(r);
+  }
+  function setSel(row,b){[...row.children].forEach(x=>x.classList.toggle('on',x===b));}
+  const strip=mk('div','strip');el.appendChild(strip);
+  const box=mk('div','dc');
+  const cn=mk('div','cn'),sb=mk('div','sub'),dg=mk('div','fb');
+  box.appendChild(cn);box.appendChild(sb);box.appendChild(dg);
+  el.appendChild(box);
+  const needTgt=['target','approach','arp','free'].indexOf(S.mode)>=0;
+  const tg=mk('div','tg'),fbx=mk('div','fb'),mv=mk('div','mv');
+  if(needTgt){el.appendChild(tg);el.appendChild(fbx);wireBox(fbx);}
+  if(S.mode==='guide'||S.mode==='chord')el.appendChild(mv);
+  const beats=mk('div','beats','<i></i><i></i><i></i><i></i>');el.appendChild(beats);
+  const r2=mk('div','row');
+  const pb=btn(needTgt?'▶ 카운트인 후 재생':'▶ 재생','brass big',()=>{if(S.on)stop();else start();});
+  r2.appendChild(pb);el.appendChild(r2);
+  const r3=mk('div','row');r3.appendChild(mk('span','sub','템포'));
+  [56,66,76,92,112].forEach(v=>{
+    const b=btn(String(v),'sm',()=>{S.bpm=v;setSel(r3,b);});
+    if(v===S.bpm)b.classList.add('on');r3.appendChild(b);
+  });
+  el.appendChild(r3);
+  let RANGE=[0,8];
+  function rebuild(){stop();RANGE=SECS[S.sec].slice();S.bi=RANGE[0];redrawStrip(S.bi);show(S.bi);}
+  function stripBase(i){return RANGE[0]+Math.floor((i-RANGE[0])/8)*8;}
+  function show(i,ci){
+    const b=BARS[i],c=b.cs[ci||0];
+    cn.textContent=b.n+'마디 · '+b.cs.map(x=>x.nm).join(' | ');
+    sb.textContent=c.sh.str+'번줄 루트 · '+fretsStr(c.sh)+'  ('+b.sec+')';
+    dg.innerHTML=diagramSVG(c.sh);
+    if(needTgt){
+      const p=tgtPos(c.t3);
+      tg.innerHTML='타겟 '+NSH[c.t3]+(p?' <span style="color:var(--mut);font-size:14px">('+p.s+'번줄 '+p.f+'프렛)</span>':'');
+      const others=TBOX.filter(x=>!p||x.midi!==p.midi);
+      fbx.innerHTML=boxSVG({dim:others,main:p?{s:p.s,f:p.f,n:p.n,midi:p.midi}:null,
+        approach:(S.mode==='approach'&&p)?{s:p.s,f:p.f-1,n:NSH[(p.midi-1)%12],midi:p.midi-1}:null,
+        scale:S.scale?barScale(b):null});
+    }
+    if(mv.parentNode){
+      const pi=(i>RANGE[0])?BARS[i-1]:null;
+      const prevC=pi?pi.cs[pi.cs.length-1]:null;
+      mv.innerHTML=moveHTML(prevC,b.cs[0]);
+    }
+    setBeat(-1);
+  }
+  function setBeat(n){[...beats.children].forEach((d,i)=>d.classList.toggle('on',i===n));}
+  function sched(){
+    if(!S.on)return;
+    const c=AC;
+    while(S.nt<c.currentTime+0.14){
+      const t=S.nt,bt=S.beat,bi=S.bi,spb=60/S.bpm;
+      click(t,bt===0);
+      if(bi>=0&&bt===0){
+        const b=BARS[bi],two=b.cs.length===2;
+        b.cs.forEach((c2,k)=>{
+          const t0=t+k*2*spb,dur=two?2*spb:4*spb;
+          if(S.rhy==='whole')comp(c2.sh,t0,dur*0.9,0.19);
+          else if(S.rhy==='four'){const n=two?2:4;for(let z=0;z<n;z++)comp(c2.sh,t0+z*spb,spb*0.45,0.16);}
+          else{comp(c2.sh,t0,spb*0.8,0.2);if(!two)comp(c2.sh,t0+1.5*spb,spb*1.5,0.2);}
+          bass(c2.pc,t0,spb*(two?1.7:1.7),0.34);
+          if(!two)bass((c2.pc+7)%12,t0+2*spb,spb*1.7,0.3);
+          if(S.mode==='guide')gt2(c2.sh,t0,dur*0.9,0.34);
+          if(S.demo&&needTgt){
+            const p=tgtPos(c2.t3),tm=p?p.midi:place(c2.t3,66);
+            if(S.mode==='target')mel(tm,t0,dur*0.85);
+            else if(S.mode==='approach'){mel(tm-1,t0-spb*0.5,spb*0.5,0.32);mel(tm,t0,dur*0.8);}
+            else if(S.mode==='arp'){
+              const base=place(c2.pc,58);
+              [base,base+QINT[c2.q].t,base+7,base+QINT[c2.q].s].forEach((m,z)=>{
+                if(!two||z<2)mel(m,t0+z*spb*(two?1:1),spb*0.8,0.34);});
+            }
+          }
+        });
+      }
+      setTimeout(()=>{
+        if(!S.on)return;
+        if(bi===-1){if(bt===0)cn.textContent='준비…';setBeat(bt);return;}
+        if(bt===0)show(bi,0);
+        else if(bt===2&&BARS[bi].cs.length===2)show(bi,1);
+        setBeat(bt);
+      },Math.max(0,(t-c.currentTime)*1000));
+      S.nt+=60/S.bpm;S.beat++;
+      if(S.beat>=4){S.beat=0;
+        if(S.bi===-1)S.bi=RANGE[0];
+        else{S.bi++;if(S.bi>=RANGE[1])S.bi=RANGE[0];
+          if(stripBase(S.bi)!==strip._lo)redrawStrip(S.bi);}
+      }
+    }
+  }
+  function redrawStrip(i){
+    const lo=stripBase(i),hi=Math.min(RANGE[1],lo+8);
+    strip.innerHTML='';
+    for(let j=lo;j<hi;j++){
+      const b=BARS[j];
+      const bt=mk('button',null,'<span class="d">'+b.n+'</span><span class="n">'+b.cs.map(c=>c.nm).join('/')+'</span>');
+      bt.addEventListener('click',()=>{if(!S.on){S.bi=j;show(j);strum(b.cs[0].sh);}});
+      strip.appendChild(bt);
+    }
+    strip._lo=lo;
+  }
+  function markStrip(i){
+    const lo=(strip._lo!==undefined)?strip._lo:RANGE[0];
+    [...strip.children].forEach((x,j)=>x.classList.toggle('cur',lo+j===i));
+  }
+  const _show=show;
+  show=function(i,ci){_show(i,ci);markStrip(i);};
+  function start(){const c=ac();S.on=true;S.bi=-1;S.beat=0;S.nt=c.currentTime+0.12;
+    pb.textContent='■ 정지';S.timer=setInterval(sched,25);}
+  function stop(){if(S.timer)clearInterval(S.timer);S.on=false;
+    pb.textContent=needTgt?'▶ 카운트인 후 재생':'▶ 재생';setBeat(-1);}
+  STOPPERS.push(stop);
+  RANGE=SECS[S.sec].slice();S.bi=RANGE[0];redrawStrip(S.bi);show(S.bi);
+  hint(el);
+}
+/* ═══ 기타 위젯 ═══ */
+function buildChain(el){
+  head(el);
+  let sec=el.dataset.sec||'A1';
+  const r=mk('div','row');
+  const info=mk('div','sub');
+  ['A1','B','C'].forEach(k=>{
+    const b=btn(k==='A1'?'A 섹션':k+' 섹션','sm',()=>{sec=k;[...r.children].forEach(x=>x.classList.toggle('on',x===b));draw();});
+    if(k===sec)b.classList.add('on');r.appendChild(b);
+  });
+  el.appendChild(r);el.appendChild(info);
+  function chain(){
+    const [lo,hi]=SECS[sec];const out=[];
+    for(let i=lo;i<hi;i++)BARS[i].cs.forEach(c=>{if(!out.length||out[out.length-1].pc!==c.pc)out.push(c);});
+    return out;
+  }
+  function draw(){info.textContent=chain().map(c=>NSH[c.pc]).join(' → ');}
+  const r2=mk('div','row');
+  r2.appendChild(btn('▶ 루트만 (베이스)','brass',()=>{
+    const c=ac();let t=c.currentTime+0.06;chain().forEach(x=>{bass(x.pc,t,0.85);t+=0.9;});}));
+  r2.appendChild(btn('코드와 함께','',()=>{
+    const c=ac();let t=c.currentTime+0.06;
+    chain().forEach(x=>{bass(x.pc,t,0.9,0.34);comp(x.sh,t,1.1,0.24);t+=1.1;});}));
+  el.appendChild(r2);draw();hint(el);
+}
+function buildMap(el){
+  head(el);
+  const g=mk('div','map');
+  BARS.forEach((b,i)=>{
+    const bt=mk('button',b.sec,'<span class="bn">'+b.n+'</span>'+b.cs.map(c=>c.nm).join('/'));
+    bt.addEventListener('click',()=>{
+      [...g.children].forEach(x=>x.classList.remove('cur'));bt.classList.add('cur');
+      const c=ac();let t=c.currentTime+0.04;
+      b.cs.forEach(x=>{bass(x.pc,t,0.8,0.34);comp(x.sh,t,1.3,0.26);t+=0.75;});
+    });
+    g.appendChild(bt);
+  });
+  el.appendChild(g);
+  el.appendChild(mk('div','mapkey','A1·A2 = 금색 테두리 · B = 초록 · C = 보라'));
+  hint(el);
+}
+function buildNine(el){
+  head(el);
+  const box=mk('div','dc'),cn=mk('div','cn'),sb=mk('div','sub'),dg=mk('div','fb');
+  const r=mk('div','row');
+  Object.keys(CHD).forEach(nm=>{
+    const b=btn(nm,'sm',()=>{
+      [...r.children].forEach(x=>x.classList.remove('on'));b.classList.add('on');
+      const pc=CHD[nm][0],q=CHD[nm][1];
+      const a=shellShape(pc,6,q),bb=shellShape(pc,5,q);
+      const sh=(a.root<=bb.root)?a:bb;
+      const t=chordTones(pc,q);
+      cn.textContent=nm;
+      sb.innerHTML=sh.str+'번줄 루트 · '+fretsStr(sh)+' &nbsp;·&nbsp; 3도 <b style="color:var(--tort)">'+NSH[t.t3]+'</b> · 7도 <b style="color:var(--sage)">'+NSH[t.t7]+'</b>';
+      dg.innerHTML=diagramSVG(sh);strum(sh);
+    });
+    r.appendChild(b);
+  });
+  el.appendChild(r);box.appendChild(cn);box.appendChild(sb);box.appendChild(dg);el.appendChild(box);
+  r.children[0].click();hint(el);
+}
+function buildDual(el){
+  head(el);
+  el.appendChild(mk('div','sub','G A B C D E F♯ — 일곱 음은 완전히 같습니다'));
+  const r=mk('div','row');
+  function run(root){
+    const c=ac();let t=c.currentTime+0.06;
+    const sc=[0,2,4,5,7,9,11].map(o=>(root+o)%12);
+    let ref=root+55;
+    sc.concat([root]).forEach((p,i)=>{
+      let m=p;while(m<ref)m+=12;while(m-ref>11)m-=12;
+      mel(m,t,0.62,0.38);ref=m;t+=0.42;
+    });
+    const q=(root===7)?'maj7':'m7';
+    comp(shellShape(root,6,q),t+0.15,2.4,0.3);
+    bass(root,t+0.15,1.6,0.36);
+  }
+  r.appendChild(btn('G에서 G까지 (메이저)','',()=>run(7)));
+  r.appendChild(btn('E에서 E까지 (마이너)','',()=>run(4)));
+  el.appendChild(r);
+  const r2=mk('div','row');
+  r2.appendChild(btn('▶ 번갈아 듣기','brass',()=>{run(7);setTimeout(()=>run(4),4200);}));
+  el.appendChild(r2);hint(el);
+}
+function buildAb(el){
+  head(el);
+  const pa=el.dataset.a.split(':'),pb=el.dataset.b.split(':');
+  const A=shellShape(+pa[0],+pa[2],pa[1]),B=shellShape(+pb[0],+pb[2],pb[1]);
+  const na=NSH[+pa[0]]+QLABEL[pa[1]],nb=NSH[+pb[0]]+QLABEL[pb[1]];
+  el.appendChild(mk('div','sub','<b>'+na+'</b> '+fretsStr(A)+' &nbsp;vs&nbsp; <b>'+nb+'</b> '+fretsStr(B)));
+  const r=mk('div','row');
+  r.appendChild(btn(na,'sm',()=>strum(A)));
+  r.appendChild(btn(nb,'sm',()=>strum(B)));
+  r.appendChild(btn('▶ 번갈아 + 해결','brass',()=>{
+    const c=ac(),n=c.currentTime+0.05,E=shellShape(4,6,'m7');
+    comp(A,n,1.6,0.3);comp(E,n+1.7,1.6,0.3);
+    comp(B,n+3.6,1.6,0.3);comp(E,n+5.3,2.0,0.3);
+  }));
+  el.appendChild(r);hint(el);
+}
+function buildBox(el){
+  head(el);
+  const host=mk('div','fb');el.appendChild(host);wireBox(host);
+  const info=mk('div','sub','\u00a0');el.appendChild(info);
+  function draw(hi){
+    host.innerHTML=boxSVG({dim:TBOX.filter(x=>x!==hi).map(x=>({s:x.s,f:x.f,n:x.i+'. '+x.n,midi:x.midi})),
+      main:hi?{s:hi.s,f:hi.f,n:hi.i+'. '+hi.n,midi:hi.midi}:null});
+  }
+  draw(null);
+  const r=mk('div','row');
+  let T=[];
+  function stop(){T.forEach(clearTimeout);T=[];draw(null);info.innerHTML='\u00a0';}
+  STOPPERS.push(stop);
+  r.appendChild(btn('▶ 순서대로 듣기','brass',()=>{
+    stop();const c=ac();let t=c.currentTime+0.08;
+    TBOX.forEach(x=>{mel(x.midi,t,1.0,0.42);
+      T.push(setTimeout(()=>{draw(x);info.textContent=x.i+'마디 타겟 · '+x.n+' ('+x.s+'번줄 '+x.f+'프렛)';},
+        Math.max(0,(t-c.currentTime)*1000)));t+=0.92;});
+    T.push(setTimeout(stop,(t-c.currentTime)*1000+500));
+  }));
+  r.appendChild(btn('■ 정지','sm',stop));
+  el.appendChild(r);hint(el);
+}
+function buildLand(el){
+  head(el);
+  el.appendChild(mk('div','sub','같은 반주 · 착지 음만 다름 (A 섹션 8마디)'));
+  let T=[];
+  function stop(){T.forEach(clearTimeout);T=[];}
+  STOPPERS.push(stop);
+  function run(kind){
+    stop();const c=ac(),spb=60/76;let t=c.currentTime+0.12,ref=66;
+    for(let i=0;i<8;i++){
+      const b=BARS[i],cc=b.cs[0];
+      for(let k=0;k<4;k++)click(t+k*spb,k===0);
+      comp(cc.sh,t,spb*0.8,0.19);comp(cc.sh,t+1.5*spb,spb*1.5,0.19);
+      bass(cc.pc,t,spb*1.7,0.34);bass((cc.pc+7)%12,t+2*spb,spb*1.7,0.3);
+      const pc=(kind==='root')?cc.pc:(kind==='fifth')?cc.t5:cc.t3;
+      const m=place(pc,ref);ref=m;mel(m,t,spb*3.5,0.42);
+      t+=4*spb;
+    }
+  }
+  const r=mk('div','row');
+  r.appendChild(btn('A · 루트에 착지','',()=>run('root')));
+  r.appendChild(btn('B · 5도에 착지','',()=>run('fifth')));
+  r.appendChild(btn('C · 3도에 착지','brass',()=>run('third')));
+  el.appendChild(r);
+  const r2=mk('div','row');r2.appendChild(btn('■ 정지','sm',stop));el.appendChild(r2);
+  hint(el);
+}
+/* ═══ 네비게이션 ═══ */
+const PAGES=[
+ ['p0','서문 · 왜 이 곡부터인가',''],
+ ['p1','제1장 · 곡의 배경','샹송에서 스탠더드로, 키의 문제'],
+ ['p2','제2장 · 하나의 발견','전곡이 4도 진행이다'],
+ ['p3','제3장 · 조성의 이중성','G 메이저와 E 마이너'],
+ ['p4','제4장 · 폼 지도','32마디 AABC'],
+ ['p5','제5장 · A 섹션 해부','1~16마디'],
+ ['p6','제6장 · B 섹션 해부','17~24마디'],
+ ['p7','제7장 · C 섹션 해부','25~32마디'],
+ ['p8','제8장 · 전곡 컴핑','쉘 보이싱 포지션'],
+ ['p9','제9장 · 보이스 리딩','가이드톤 라인'],
+ ['p10','제10장 · 컴핑 리듬','포 투 더 바와 찰스턴'],
+ ['p11','제11장 · 솔로 ①','어디에 착지할 것인가'],
+ ['p12','제12장 · 솔로 ②','접근음 · 아르페지오 · 자유'],
+ ['p13','제13장 · 6주 로드맵',''],
+ ['p14','부록 · 듣기 · 이조 · 용어','']
+];
+let CUR=0;
+function goPage(i){
+  stopAll();
+  CUR=Math.max(0,Math.min(PAGES.length-1,i));
+  PAGES.forEach((p,j)=>$(p[0]).classList.toggle('on',j===CUR));
+  $('topch').textContent=PAGES[CUR][1];
+  $('prev').disabled=(CUR===0);$('next').disabled=(CUR===PAGES.length-1);
+  [...$('toclist').children].forEach((b,j)=>b.classList.toggle('cur',j===CUR));
+  window.scrollTo(0,0);
+  try{if(window.storage)window.storage.set('al_book_page',String(CUR));}catch(e){}
+}
+$('prev').addEventListener('click',()=>goPage(CUR-1));
+$('next').addEventListener('click',()=>goPage(CUR+1));
+$('toctog').addEventListener('click',()=>$('toc').classList.toggle('on'));
+$('tocclose').addEventListener('click',()=>$('toc').classList.remove('on'));
+(async function(){
+  const tl=$('toclist');
+  PAGES.forEach((p,i)=>{
+    const b=mk('button',null,p[1]+(p[2]?'<small>'+p[2]+'</small>':''));
+    b.addEventListener('click',()=>{$('toc').classList.remove('on');goPage(i);});
+    tl.appendChild(b);
+  });
+  document.querySelectorAll('.w-song').forEach(buildSong);
+  document.querySelectorAll('.w-chain').forEach(buildChain);
+  document.querySelectorAll('.w-map').forEach(buildMap);
+  document.querySelectorAll('.w-nine').forEach(buildNine);
+  document.querySelectorAll('.w-dual').forEach(buildDual);
+  document.querySelectorAll('.w-ab').forEach(buildAb);
+  document.querySelectorAll('.w-box').forEach(buildBox);
+  document.querySelectorAll('.w-land').forEach(buildLand);
+  document.querySelectorAll('.chk .rev').forEach(b=>b.addEventListener('click',()=>{
+    const c=b.closest('.chk');c.classList.toggle('open');
+    b.textContent=c.classList.contains('open')?'답 가리기':'답 보기';
+  }));
+  let s=0;
+  try{if(window.storage){const r=await window.storage.get('al_book_page');
+    if(r&&r.value){const v=parseInt(r.value,10);if(v>=0&&v<PAGES.length)s=v;}}}catch(e){}
+  goPage(s);
+})();
+</script>
+</body>
+</html>
